@@ -10,5 +10,9 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class CreditTransfer {
-    
+
+    private String paymentAccountIdentifier;
+    private String paymentAccountName;
+    private String paymentServiceProviderIdentifier;
+
 }

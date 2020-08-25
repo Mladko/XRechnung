@@ -5,10 +5,15 @@
  */
 package com.hoecker.xrechnung.pojos;
 
+import java.util.Date;
+
 /**
  *
  * @author Sikiric
  */
 public class InvoicingPeriod {
-    
+
+    private Date periodStartDate;
+    private Date periodEndDate;
+
 }

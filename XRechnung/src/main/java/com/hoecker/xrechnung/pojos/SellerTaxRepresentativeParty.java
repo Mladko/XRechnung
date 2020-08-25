@@ -10,5 +10,11 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class SellerTaxRepresentativeParty {
+    //Attribute
+    private String representativeName;
+    private String representativeVATidentifier;
+    
+    //Klassen
+    private SellerTaxRepresentativePostalAddress sellerTaxRepresentativePostalAddress;
     
 }

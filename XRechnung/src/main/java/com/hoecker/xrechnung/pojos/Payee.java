@@ -10,5 +10,9 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class Payee {
+
+    private String payeeName;
+    private String payeeIdentifier;
+    private String payeeLegalRegistrationIdentifier;
     
 }

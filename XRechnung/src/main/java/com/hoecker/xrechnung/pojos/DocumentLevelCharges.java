@@ -10,5 +10,13 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class DocumentLevelCharges {
-    
+
+    private String documentLevelChargeAmount;
+    private String documentLevelChargeBaseAmount;
+    private String documentLevelChargePercentage;
+    private String documentLevelChargeVATcategoryCode;
+    private String documentLevelChargeVATrate;
+    private String documentLevelChargeReason;
+    private String documentLevelChargeReasonCode;
+
 }

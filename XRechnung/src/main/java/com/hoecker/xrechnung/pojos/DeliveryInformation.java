@@ -5,10 +5,19 @@
  */
 package com.hoecker.xrechnung.pojos;
 
+import java.util.Date;
+
 /**
  *
  * @author Sikiric
  */
 public class DeliveryInformation {
+    
+    private String deliverToPartyName;
+    private String deliverToLocationIdentifier;
+    private Date actualDeliveryDate;
+    
+    private InvoicingPeriod invoicingPeriod;
+    private DeliverToAddress deliverToAddress;
     
 }

@@ -10,5 +10,11 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class InvoiceLineCharges {
+
+    private String invoiceLineChargeAmount;
+    private String invoiceLineChargeBaseAmount;
+    private String invoiceLineChargePercentage;
+    private String invoiceLineChargeReason;
+    private String invoiceLineChargeReasonCode;
     
 }

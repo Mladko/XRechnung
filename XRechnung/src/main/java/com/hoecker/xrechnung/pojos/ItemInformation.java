@@ -10,5 +10,15 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class ItemInformation {
-    
+    //Attribute
+    private String itemName;
+    private String itemDescription;
+    private String itemSellersIdentifier;
+    private String itemBuyersIdentifier;
+    private String itemStandardIdentifier;
+    private String itemClassificationIdentifier;
+    private String itemCountryOfOrigin;
+    //Klassen
+    private ItemAttributes itemAttributes;
+
 }

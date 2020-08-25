@@ -10,5 +10,16 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class DocumentTotals {
-    
+
+    private String sumInvoiceLineNetAmount;
+    private String sumOfAllowancesOnDocumentLevel;
+    private String sumChargesOnDocumentLevel;
+    private String invoiceTotalAmountWithoutVAT;
+    private String invoiceTotalVATamount;
+    private String invoiveTotalVATamountInAccountingCurrency;
+    private String invoiceTotalAmountWithVAT;
+    private String paidAmount;
+    private String roundingAmount;
+    private String amountDueForPayment;
+
 }

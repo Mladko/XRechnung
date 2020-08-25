@@ -9,6 +9,9 @@ package com.hoecker.xrechnung.pojos;
  *
  * @author Sikiric
  */
-public class LiveVatInformation {
-    
+public class LineVATinformation {
+
+    private String invoicedItemVATcategoryCode;
+    private String invoicedItemVATrate;
+
 }

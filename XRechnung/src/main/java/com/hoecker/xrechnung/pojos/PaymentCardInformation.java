@@ -11,4 +11,7 @@ package com.hoecker.xrechnung.pojos;
  */
 public class PaymentCardInformation {
     
+    private String paymentCardPrimaryAccountNumber;
+    private String paymendCardHolderName;
+    
 }

@@ -10,5 +10,12 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class VatBreakdown {
-    
+
+    private String VATcategoryTaxableAmount;
+    private String VATcategoryTaxAmount;
+    private String VATcategoryCode;
+    private String VATcategoryRate;
+    private String VATexemptionReasonText;
+    private String VATexemptionReasonCode;
+
 }

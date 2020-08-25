@@ -11,4 +11,9 @@ package com.hoecker.xrechnung.pojos;
  */
 public class DirectDebt {
     
+    private String mandateReferenceIdentifier;
+    private String bankAssignedCreditorIdentifier;
+    private String debitedAccountIdentifier;
+    
+    
 }

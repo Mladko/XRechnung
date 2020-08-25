@@ -10,5 +10,14 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class PaymentInstructions {
+    //Attribute
+    private String paymentMeansTypeCode;
+    private String paymentMeansText;
+    private String remittanceInformation;
     
+    //Klassen
+    private CreditTransfer creditTransfer;
+    private PaymentCardInformation paymentCardInformation;
+    private DirectDebt directDebt;
+
 }

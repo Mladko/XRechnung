@@ -11,4 +11,10 @@ package com.hoecker.xrechnung.pojos;
  */
 public class PriceDetails {
     
+    private String itemNetPrice;
+    private String itemPriceDiscount;
+    private String itemGrossPrice;
+    private String itemPriceBaseQuantity;
+    private String itemPriceBaseQuantityUnitOfMeasure;
+    
 }
