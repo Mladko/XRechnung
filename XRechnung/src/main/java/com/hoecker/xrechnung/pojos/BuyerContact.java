@@ -10,5 +10,9 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class BuyerContact {
+
+    private String contactPoint;
+    private String contactTelephoneNumber;
+    private String contactEmailAddress;
     
 }

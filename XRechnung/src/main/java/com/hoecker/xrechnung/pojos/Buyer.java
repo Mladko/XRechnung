@@ -10,5 +10,15 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class Buyer {
-    
+    //Attribute
+    private String name;
+    private String tradingName;
+    private String identifier;
+    private String legalRegistrationIdentifier;
+    private String vatIdentifier;
+    private String eletcronicAddress;
+
+    //Klassen
+    private BuyerPostalAddress buyerPostalAddress;
+    private BuyerContact buyerContact;
 }
