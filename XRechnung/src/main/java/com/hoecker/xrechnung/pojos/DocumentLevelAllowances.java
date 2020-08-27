@@ -11,12 +11,69 @@ package com.hoecker.xrechnung.pojos;
  */
 public class DocumentLevelAllowances {
     
-    private String documentLevelAllowancesAmount;
+    private final String documentLevelAllowancesAmount;
     private String documentLevelAllowancesBaseAmount;
     private String documentLevelAllowancesPercentages;
-    private String documentLevelAllowancesVATcategoryCode;
+    private final String documentLevelAllowancesVATcategoryCode;
     private String documentLevelAllowancesVATrate;
     private String documentLevelAllowancesReason;
     private String documentLevelAllowancesReasonCode;
+
+    public DocumentLevelAllowances(String documentLevelAllowancesAmount, String documentLevelAllowancesVATcategoryCode) {
+        this.documentLevelAllowancesAmount = documentLevelAllowancesAmount;
+        this.documentLevelAllowancesVATcategoryCode = documentLevelAllowancesVATcategoryCode;
+    }
+
     
+//<editor-fold defaultstate="collapsed" desc="Getter & Setter">
+    
+    public String getDocumentLevelAllowancesAmount() {
+        return documentLevelAllowancesAmount;
+    }
+    
+    public String getDocumentLevelAllowancesBaseAmount() {
+        return documentLevelAllowancesBaseAmount;
+    }
+    
+    public void setDocumentLevelAllowancesBaseAmount(String documentLevelAllowancesBaseAmount) {
+        this.documentLevelAllowancesBaseAmount = documentLevelAllowancesBaseAmount;
+    }
+    
+    public String getDocumentLevelAllowancesPercentages() {
+        return documentLevelAllowancesPercentages;
+    }
+    
+    public void setDocumentLevelAllowancesPercentages(String documentLevelAllowancesPercentages) {
+        this.documentLevelAllowancesPercentages = documentLevelAllowancesPercentages;
+    }
+    
+    public String getDocumentLevelAllowancesVATcategoryCode() {
+        return documentLevelAllowancesVATcategoryCode;
+    }
+        
+    public String getDocumentLevelAllowancesVATrate() {
+        return documentLevelAllowancesVATrate;
+    }
+    
+    public void setDocumentLevelAllowancesVATrate(String documentLevelAllowancesVATrate) {
+        this.documentLevelAllowancesVATrate = documentLevelAllowancesVATrate;
+    }
+    
+    public String getDocumentLevelAllowancesReason() {
+        return documentLevelAllowancesReason;
+    }
+    
+    public void setDocumentLevelAllowancesReason(String documentLevelAllowancesReason) {
+        this.documentLevelAllowancesReason = documentLevelAllowancesReason;
+    }
+    
+    public String getDocumentLevelAllowancesReasonCode() {
+        return documentLevelAllowancesReasonCode;
+    }
+    
+    public void setDocumentLevelAllowancesReasonCode(String documentLevelAllowancesReasonCode) {
+        this.documentLevelAllowancesReasonCode = documentLevelAllowancesReasonCode;
+    }
+    
+//</editor-fold>
 }

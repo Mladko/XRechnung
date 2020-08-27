@@ -11,8 +11,32 @@ package com.hoecker.xrechnung.pojos;
  */
 public class Payee {
 
-    private String payeeName;
+    private final String payeeName;
     private String payeeIdentifier;
     private String payeeLegalRegistrationIdentifier;
+
+    public Payee(String payeeName) {
+        this.payeeName = payeeName;
+    }
+
+    public String getPayeeIdentifier() {
+        return payeeIdentifier;
+    }
+
+    public void setPayeeIdentifier(String payeeIdentifier) {
+        this.payeeIdentifier = payeeIdentifier;
+    }
+
+    public String getPayeeLegalRegistrationIdentifier() {
+        return payeeLegalRegistrationIdentifier;
+    }
+
+    public void setPayeeLegalRegistrationIdentifier(String payeeLegalRegistrationIdentifier) {
+        this.payeeLegalRegistrationIdentifier = payeeLegalRegistrationIdentifier;
+    }
+
+    public String getPayeeName() {
+        return payeeName;
+    }
     
 }

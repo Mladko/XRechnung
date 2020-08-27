@@ -11,9 +11,44 @@ package com.hoecker.xrechnung.pojos;
  */
 public class AdditionalSupportingDocument {
     
-    private String supportingDocumentReference;
+    private final String supportingDocumentReference;
     private String supportingDocumentDescription;
     private String externalDocumentLocation;
     private String attachedDocument;
     
+     public AdditionalSupportingDocument(String supportingDocumentReference) {
+        this.supportingDocumentReference = supportingDocumentReference;
+    }
+     
+    //<editor-fold defaultstate="collapsed" desc="Getter & Setter">
+
+    public String getSupportingDocumentReference() {
+        return supportingDocumentReference;
+    }
+   
+    
+    public String getSupportingDocumentDescription() {
+        return supportingDocumentDescription;
+    }
+    
+    public void setSupportingDocumentDescription(String supportingDocumentDescription) {
+        this.supportingDocumentDescription = supportingDocumentDescription;
+    }
+    
+    public String getExternalDocumentLocation() {
+        return externalDocumentLocation;
+    }
+    
+    public void setExternalDocumentLocation(String externalDocumentLocation) {
+        this.externalDocumentLocation = externalDocumentLocation;
+    }
+    
+    public String getAttachedDocument() {
+        return attachedDocument;
+    }
+    
+    public void setAttachedDocument(String attachedDocument) {
+        this.attachedDocument = attachedDocument;
+    }
 }
+//</editor-fold>

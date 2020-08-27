@@ -11,7 +11,20 @@ package com.hoecker.xrechnung.pojos;
  */
 public class ItemAttributes {
     
-    private String itemAttributeName;
-    private String itemAttributeValue;
+    private final String itemAttributeName;
+    private final String itemAttributeValue;
+
+    public ItemAttributes(String itemAttributeName, String itemAttributeValue) {
+        this.itemAttributeName = itemAttributeName;
+        this.itemAttributeValue = itemAttributeValue;
+    }
+
+    public String getItemAttributeName() {
+        return itemAttributeName;
+    }
+
+    public String getItemAttributeValue() {
+        return itemAttributeValue;
+    }
     
 }

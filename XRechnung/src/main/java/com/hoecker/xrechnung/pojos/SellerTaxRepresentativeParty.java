@@ -11,10 +11,28 @@ package com.hoecker.xrechnung.pojos;
  */
 public class SellerTaxRepresentativeParty {
     //Attribute
-    private String representativeName;
-    private String representativeVATidentifier;
+    private final String representativeName;
+    private final String representativeVATidentifier;
     
     //Klassen
-    private SellerTaxRepresentativePostalAddress sellerTaxRepresentativePostalAddress;
+    private final SellerTaxRepresentativePostalAddress sellerTaxRepresentativePostalAddress;
+
+    public SellerTaxRepresentativeParty(String representativeName, String representativeVATidentifier, SellerTaxRepresentativePostalAddress sellerTaxRepresentativePostalAddress) {
+        this.representativeName = representativeName;
+        this.representativeVATidentifier = representativeVATidentifier;
+        this.sellerTaxRepresentativePostalAddress = sellerTaxRepresentativePostalAddress;
+    }
+
+    public String getRepresentativeName() {
+        return representativeName;
+    }
+
+    public String getRepresentativeVATidentifier() {
+        return representativeVATidentifier;
+    }
+
+    public SellerTaxRepresentativePostalAddress getSellerTaxRepresentativePostalAddress() {
+        return sellerTaxRepresentativePostalAddress;
+    }
     
 }

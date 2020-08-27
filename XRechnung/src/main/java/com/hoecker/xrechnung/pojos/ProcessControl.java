@@ -12,6 +12,22 @@ package com.hoecker.xrechnung.pojos;
 public class ProcessControl {
 
     private String businessProcessType;
-    private String specificationidentifier;
+    private final String specificationidentifier;
+
+    public ProcessControl(String specificationidentifier) {
+        this.specificationidentifier = specificationidentifier;
+    }
+
+    public String getSpecificationidentifier() {
+        return specificationidentifier;
+    }
+
+    public String getBusinessProcessType() {
+        return businessProcessType;
+    }
+
+    public void setBusinessProcessType(String businessProcessType) {
+        this.businessProcessType = businessProcessType;
+    }
 
 }

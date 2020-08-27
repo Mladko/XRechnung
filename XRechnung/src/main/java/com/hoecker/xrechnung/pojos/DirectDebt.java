@@ -11,9 +11,27 @@ package com.hoecker.xrechnung.pojos;
  */
 public class DirectDebt {
     
-    private String mandateReferenceIdentifier;
-    private String bankAssignedCreditorIdentifier;
-    private String debitedAccountIdentifier;
+    private final String mandateReferenceIdentifier;
+    private final String bankAssignedCreditorIdentifier;
+    private final String debitedAccountIdentifier;
+
+    public DirectDebt(String mandateReferenceIdentifier, String bankAssignedCreditorIdentifier, String debitedAccountIdentifier) {
+        this.mandateReferenceIdentifier = mandateReferenceIdentifier;
+        this.bankAssignedCreditorIdentifier = bankAssignedCreditorIdentifier;
+        this.debitedAccountIdentifier = debitedAccountIdentifier;
+    }
+
+    public String getMandateReferenceIdentifier() {
+        return mandateReferenceIdentifier;
+    }
+
+    public String getBankAssignedCreditorIdentifier() {
+        return bankAssignedCreditorIdentifier;
+    }
+
+    public String getDebitedAccountIdentifier() {
+        return debitedAccountIdentifier;
+    }
     
     
 }

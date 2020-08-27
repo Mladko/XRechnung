@@ -13,7 +13,20 @@ import java.util.Date;
  */
 public class InvoiceLinePeriod {
     
-    private Date invoiceLineLeriodStartDate;
-    private Date invoiceLineLeriodEndDate;
+    private final Date invoiceLineLeriodStartDate;
+    private final Date invoiceLineLeriodEndDate;
+
+    public InvoiceLinePeriod(Date invoiceLineLeriodStartDate, Date invoiceLineLeriodEndDate) {
+        this.invoiceLineLeriodStartDate = invoiceLineLeriodStartDate;
+        this.invoiceLineLeriodEndDate = invoiceLineLeriodEndDate;
+    }
+
+    public Date getInvoiceLineLeriodStartDate() {
+        return invoiceLineLeriodStartDate;
+    }
+
+    public Date getInvoiceLineLeriodEndDate() {
+        return invoiceLineLeriodEndDate;
+    }
     
-}
+ }

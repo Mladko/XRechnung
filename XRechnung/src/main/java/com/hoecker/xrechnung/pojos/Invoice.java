@@ -6,6 +6,7 @@
 package com.hoecker.xrechnung.pojos;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -14,15 +15,15 @@ import java.util.Date;
 public class Invoice {
 
     //Attributes
-    private Long invoiceNumber;
-    private Date issueDate;
-    private String invoiceTypeCode;
-    private String invoiceCurrencyCode;
+    private final Long invoiceNumber;
+    private final Date issueDate;
+    private final String invoiceTypeCode;
+    private final String invoiceCurrencyCode;
     private String vatAccountingCurrencyCode;
     private Date valueAddedTaxPointDate;
     private String valueAddedTaxPointCode;
     private Date paymendDueDate;
-    private String buyerReference;
+    private final String buyerReference;
     private String projectReference;
     private String contractReference;
     private String purchaseOrderReference;
@@ -35,34 +36,88 @@ public class Invoice {
     private String paymentTerms;
 
     //Classes
-    private InvoiceNote invoiceNote;
-    private ProcessControl processControl;
-    private PrecedingInvoiceReference precedingInvoiceReference;
-    private Seller seller;
-    private Buyer buyer;
+    private List<InvoiceNote> invoiceNoteList;
+    private final ProcessControl processControl;
+    private List <PrecedingInvoiceReference> precedingInvoiceReferenceList;
+    private final Seller seller;
+    private final Buyer buyer;
     private Payee payee;
     private SellerTaxRepresentativeParty sellerTaxRepresentativeParty;
     private DeliveryInformation deliveryInformation;
-    private PaymentInstructions paymentInstructions;
-    private DocumentLevelAllowances documentLevelAllowances;
-    private DocumentLevelCharges documentLevelCharges;
-    private DocumentTotals documentTotals;
-    private VatBreakdown vatBreakdown;
-    private AdditionalSupportingDocument additionalSupportingDocument;
-    private InvoiceLine invoiceLine;
+    private final PaymentInstructions paymentInstructions;
+    private List<DocumentLevelAllowances> documentLevelAllowancesList;
+    private List<DocumentLevelCharges> documentLevelChargesList;
+    private final DocumentTotals documentTotals;
+    private final List<VatBreakdown> vatBreakdownList;
+    private List<AdditionalSupportingDocument> additionalSupportingDocumentList;
+    private final List<InvoiceLine> invoiceLineList;
 
-    public Invoice(Long invoiceNumber, Date issueDate, String invoiceTypeCode, String invoiceCurrencyCode, String buyerReference) {
+    public Invoice(Long invoiceNumber, Date issueDate, String invoiceTypeCode, String invoiceCurrencyCode, String buyerReference, ProcessControl processControl, Seller seller, Buyer buyer, PaymentInstructions paymentInstructions, DocumentTotals documentTotals, List<VatBreakdown> vatBreakdownList, List<InvoiceLine> invoiceLineList) {
         this.invoiceNumber = invoiceNumber;
         this.issueDate = issueDate;
         this.invoiceTypeCode = invoiceTypeCode;
         this.invoiceCurrencyCode = invoiceCurrencyCode;
         this.buyerReference = buyerReference;
+        this.processControl = processControl;
+        this.seller = seller;
+        this.buyer = buyer;
+        this.paymentInstructions = paymentInstructions;
+        this.documentTotals = documentTotals;
+        this.vatBreakdownList = vatBreakdownList;
+        this.invoiceLineList = invoiceLineList;
     }
 
     //<editor-fold defaultstate="collapsed" desc="Getter & Setter">
-    
     public String getVatAccountingCurrencyCode() {
         return vatAccountingCurrencyCode;
+    }
+    
+    public Long getInvoiceNumber() {
+        return invoiceNumber;
+    }
+    
+    public Date getIssueDate() {
+        return issueDate;
+    }
+    
+    public String getInvoiceTypeCode() {
+        return invoiceTypeCode;
+    }
+    
+    public String getInvoiceCurrencyCode() {
+        return invoiceCurrencyCode;
+    }
+    
+    public String getBuyerReference() {
+        return buyerReference;
+    }
+    
+    public ProcessControl getProcessControl() {
+        return processControl;
+    }
+    
+    public Seller getSeller() {
+        return seller;
+    }
+    
+    public Buyer getBuyer() {
+        return buyer;
+    }
+    
+    public PaymentInstructions getPaymentInstructions() {
+        return paymentInstructions;
+    }
+    
+    public DocumentTotals getDocumentTotals() {
+        return documentTotals;
+    }
+    
+    public List<VatBreakdown> getVatBreakdownList() {
+        return vatBreakdownList;
+    }
+    
+    public List<InvoiceLine> getInvoiceLineList() {
+        return invoiceLineList;
     }
     
     public void setVatAccountingCurrencyCode(String vatAccountingCurrencyCode) {
@@ -173,44 +228,20 @@ public class Invoice {
         this.paymentTerms = paymentTerms;
     }
     
-    public InvoiceNote getInvoiceNote() {
-        return invoiceNote;
+    public List<InvoiceNote> getInvoiceNoteList() {
+        return invoiceNoteList;
     }
     
-    public void setInvoiceNote(InvoiceNote invoiceNote) {
-        this.invoiceNote = invoiceNote;
+    public void setInvoiceNoteList(List<InvoiceNote> invoiceNoteList) {
+        this.invoiceNoteList = invoiceNoteList;
     }
     
-    public ProcessControl getProcessControl() {
-        return processControl;
+    public List<PrecedingInvoiceReference> getPrecedingInvoiceReferenceList() {
+        return precedingInvoiceReferenceList;
     }
     
-    public void setProcessControl(ProcessControl processControl) {
-        this.processControl = processControl;
-    }
-    
-    public PrecedingInvoiceReference getPrecedingInvoiceReference() {
-        return precedingInvoiceReference;
-    }
-    
-    public void setPrecedingInvoiceReference(PrecedingInvoiceReference precedingInvoiceReference) {
-        this.precedingInvoiceReference = precedingInvoiceReference;
-    }
-    
-    public Seller getSeller() {
-        return seller;
-    }
-    
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
-    
-    public Buyer getBuyer() {
-        return buyer;
-    }
-    
-    public void setBuyer(Buyer buyer) {
-        this.buyer = buyer;
+    public void setPrecedingInvoiceReferenceList(List<PrecedingInvoiceReference> precedingInvoiceReferenceList) {
+        this.precedingInvoiceReferenceList = precedingInvoiceReferenceList;
     }
     
     public Payee getPayee() {
@@ -237,61 +268,30 @@ public class Invoice {
         this.deliveryInformation = deliveryInformation;
     }
     
-    public PaymentInstructions getPaymentInstructions() {
-        return paymentInstructions;
+    public List<DocumentLevelAllowances> getDocumentLevelAllowancesList() {
+        return documentLevelAllowancesList;
     }
     
-    public void setPaymentInstructions(PaymentInstructions paymentInstructions) {
-        this.paymentInstructions = paymentInstructions;
+    public void setDocumentLevelAllowancesList(List<DocumentLevelAllowances> documentLevelAllowancesList) {
+        this.documentLevelAllowancesList = documentLevelAllowancesList;
     }
     
-    public DocumentLevelAllowances getDocumentLevelAllowances() {
-        return documentLevelAllowances;
+    public List<DocumentLevelCharges> getDocumentLevelChargesList() {
+        return documentLevelChargesList;
     }
     
-    public void setDocumentLevelAllowances(DocumentLevelAllowances documentLevelAllowances) {
-        this.documentLevelAllowances = documentLevelAllowances;
+    public void setDocumentLevelChargesList(List<DocumentLevelCharges> documentLevelChargesList) {
+        this.documentLevelChargesList = documentLevelChargesList;
     }
     
-    public DocumentLevelCharges getDocumentLevelCharges() {
-        return documentLevelCharges;
+    public List<AdditionalSupportingDocument> getAdditionalSupportingDocumentList() {
+        return additionalSupportingDocumentList;
     }
     
-    public void setDocumentLevelCharges(DocumentLevelCharges documentLevelCharges) {
-        this.documentLevelCharges = documentLevelCharges;
-    }
-    
-    public DocumentTotals getDocumentTotals() {
-        return documentTotals;
-    }
-    
-    public void setDocumentTotals(DocumentTotals documentTotals) {
-        this.documentTotals = documentTotals;
-    }
-    
-    public VatBreakdown getVatBreakdown() {
-        return vatBreakdown;
-    }
-    
-    public void setVatBreakdown(VatBreakdown vatBreakdown) {
-        this.vatBreakdown = vatBreakdown;
-    }
-    
-    public AdditionalSupportingDocument getAdditionalSupportingDocument() {
-        return additionalSupportingDocument;
-    }
-    
-    public void setAdditionalSupportingDocument(AdditionalSupportingDocument additionalSupportingDocument) {
-        this.additionalSupportingDocument = additionalSupportingDocument;
-    }
-    
-    public InvoiceLine getInvoiceLine() {
-        return invoiceLine;
-    }
-    
-    public void setInvoiceLine(InvoiceLine invoiceLine) {
-        this.invoiceLine = invoiceLine;
+    public void setAdditionalSupportingDocumentList(List<AdditionalSupportingDocument> additionalSupportingDocumentList) {
+        this.additionalSupportingDocumentList = additionalSupportingDocumentList;
     }
 //</editor-fold>
+   
     
 }

@@ -11,8 +11,27 @@ package com.hoecker.xrechnung.pojos;
  */
 public class SellerPostalAddress {
 
-    private String sellerContactPoint;
-    private String sellecrContactTelephoneNumber;
-    private String sellerContactEmailaddress;
+    private final String sellerContactPoint;
+    private final String sellecrContactTelephoneNumber;
+    private final String sellerContactEmailaddress;
+
+    public SellerPostalAddress(String sellerContactPoint, String sellecrContactTelephoneNumber, String sellerContactEmailaddress) {
+        this.sellerContactPoint = sellerContactPoint;
+        this.sellecrContactTelephoneNumber = sellecrContactTelephoneNumber;
+        this.sellerContactEmailaddress = sellerContactEmailaddress;
+    }
+
+    public String getSellerContactPoint() {
+        return sellerContactPoint;
+    }
+
+    public String getSellecrContactTelephoneNumber() {
+        return sellecrContactTelephoneNumber;
+    }
+
+    public String getSellerContactEmailaddress() {
+        return sellerContactEmailaddress;
+    }
+    
     
 }

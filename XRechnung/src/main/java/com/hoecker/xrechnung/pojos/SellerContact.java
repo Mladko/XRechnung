@@ -14,9 +14,63 @@ public class SellerContact {
     private String sellerAddressLine1;
     private String sellerAddressLine2;
     private String sellerAddressLine3;
-    private String sellerCity;
-    private String sellerPostCode;
+    private final String sellerCity;
+    private final String sellerPostCode;
     private String sellerCountrySubdivision;
-    private String sellerCountryCode;
+    private final String sellerCountryCode;
+
+    public SellerContact(String sellerCity, String sellerPostCode, String sellerCountryCode) {
+        this.sellerCity = sellerCity;
+        this.sellerPostCode = sellerPostCode;
+        this.sellerCountryCode = sellerCountryCode;
+    }
+    
+//<editor-fold defaultstate="collapsed" desc="Getter & Setter">
+    
+    public String getSellerCity() {
+        return sellerCity;
+    }
+    
+    public String getSellerPostCode() {
+        return sellerPostCode;
+    }
+    
+    public String getSellerCountryCode() {
+        return sellerCountryCode;
+    }
+    
+    public String getSellerAddressLine1() {
+        return sellerAddressLine1;
+    }
+    
+    public void setSellerAddressLine1(String sellerAddressLine1) {
+        this.sellerAddressLine1 = sellerAddressLine1;
+    }
+    
+    public String getSellerAddressLine2() {
+        return sellerAddressLine2;
+    }
+    
+    public void setSellerAddressLine2(String sellerAddressLine2) {
+        this.sellerAddressLine2 = sellerAddressLine2;
+    }
+    
+    public String getSellerAddressLine3() {
+        return sellerAddressLine3;
+    }
+    
+    public void setSellerAddressLine3(String sellerAddressLine3) {
+        this.sellerAddressLine3 = sellerAddressLine3;
+    }
+    
+    public String getSellerCountrySubdivision() {
+        return sellerCountrySubdivision;
+    }
+    
+    public void setSellerCountrySubdivision(String sellerCountrySubdivision) {
+        this.sellerCountrySubdivision = sellerCountrySubdivision;
+    }
+    
+//</editor-fold>
     
 }

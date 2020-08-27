@@ -13,7 +13,24 @@ import java.util.Date;
  */
 public class PrecedingInvoiceReference {
 
-    private String precedingInvoiceReference;
+    private final String precedingInvoiceReference;
     private Date precedingInvoiceIssueDate;
+
+    public PrecedingInvoiceReference(String precedingInvoiceReference) {
+        this.precedingInvoiceReference = precedingInvoiceReference;
+    }
+
+    public String getPrecedingInvoiceReference() {
+        return precedingInvoiceReference;
+    }
+
+    public Date getPrecedingInvoiceIssueDate() {
+        return precedingInvoiceIssueDate;
+    }
+
+    public void setPrecedingInvoiceIssueDate(Date precedingInvoiceIssueDate) {
+        this.precedingInvoiceIssueDate = precedingInvoiceIssueDate;
+    }
+    
     
 }

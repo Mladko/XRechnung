@@ -13,7 +13,21 @@ import java.util.Date;
  */
 public class InvoicingPeriod {
 
-    private Date periodStartDate;
-    private Date periodEndDate;
+    private final Date periodStartDate;
+    private final Date periodEndDate;
 
+    public InvoicingPeriod(Date periodStartDate, Date periodEndDate) {
+        this.periodStartDate = periodStartDate;
+        this.periodEndDate = periodEndDate;
+    }
+
+    public Date getPeriodStartDate() {
+        return periodStartDate;
+    }
+
+    public Date getPeriodEndDate() {
+        return periodEndDate;
+    }
+
+    
 }

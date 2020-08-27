@@ -11,5 +11,23 @@ package com.hoecker.xrechnung.pojos;
  */
 public class InvoiceNote {
     private String invoiceNoteSubjectCode;
-    private String invoiceNote;
+    private final String invoiceNote;
+
+    public InvoiceNote(String invoiceNote) {
+        this.invoiceNote = invoiceNote;
+    }
+
+    public String getInvoiceNoteSubjectCode() {
+        return invoiceNoteSubjectCode;
+    }
+
+    public void setInvoiceNoteSubjectCode(String invoiceNoteSubjectCode) {
+        this.invoiceNoteSubjectCode = invoiceNoteSubjectCode;
+    }
+
+    public String getInvoiceNote() {
+        return invoiceNote;
+    }
+    
+    
 }

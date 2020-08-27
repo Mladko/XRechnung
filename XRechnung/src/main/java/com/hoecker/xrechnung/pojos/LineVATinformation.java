@@ -11,7 +11,23 @@ package com.hoecker.xrechnung.pojos;
  */
 public class LineVATinformation {
 
-    private String invoicedItemVATcategoryCode;
+    private final String invoicedItemVATcategoryCode;
     private String invoicedItemVATrate;
+
+    public LineVATinformation(String invoicedItemVATcategoryCode) {
+        this.invoicedItemVATcategoryCode = invoicedItemVATcategoryCode;
+    }
+
+    public String getInvoicedItemVATcategoryCode() {
+        return invoicedItemVATcategoryCode;
+    }
+
+    public String getInvoicedItemVATrate() {
+        return invoicedItemVATrate;
+    }
+
+    public void setInvoicedItemVATrate(String invoicedItemVATrate) {
+        this.invoicedItemVATrate = invoicedItemVATrate;
+    }
 
 }
