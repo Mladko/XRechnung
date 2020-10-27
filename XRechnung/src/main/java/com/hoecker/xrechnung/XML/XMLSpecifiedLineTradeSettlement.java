@@ -2,7 +2,7 @@
  * Mladen Sikiric
  * Höcker Project Managers GmbH
  */
-package com.hoecker.xrechnung.pojos.XML;
+package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.InvoiceLine;
 import com.hoecker.xrechnung.pojos.InvoiceLineAllowances;
@@ -51,6 +51,7 @@ public class XMLSpecifiedLineTradeSettlement {
         if (!this.getInvoicedItemVATrate().equals("")) {
             xml = xml + "                    <ram:RateApplicablePercent>" + this.getInvoicedItemVATrate() + "</ram:RateApplicablePercent>\n";
         }
+        xml = xml + "                </ram:ApplicableTradeTax>\n";
         if (this.getInvoiceLinePeriodStartDate() != null && this.getInvoiceLinePeriodStartDate().equals("")
                 && this.getInvoiceLinePeriodEndDate() != null && this.getInvoiceLinePeriodEndDate().equals("")) {
             xml = xml + "                <ram:BillingSpecifiedPeriod>   \n"

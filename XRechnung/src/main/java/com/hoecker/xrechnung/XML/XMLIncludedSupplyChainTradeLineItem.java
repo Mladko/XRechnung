@@ -2,7 +2,7 @@
  * Mladen Sikiric
  * Höcker Project Managers GmbH
  */
-package com.hoecker.xrechnung.pojos.XML;
+package com.hoecker.xrechnung.XML;
 
 import java.util.List;
 
