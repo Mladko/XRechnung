@@ -15,7 +15,7 @@ import java.util.List;
 public class Invoice {
 
     //Attributes
-    private final Long invoiceNumber;
+    private final String invoiceNumber;
     private final Date issueDate;
     private final String invoiceTypeCode;
     private final String invoiceCurrencyCode;
@@ -52,7 +52,7 @@ public class Invoice {
     private List<AdditionalSupportingDocument> additionalSupportingDocumentList;
     private final List<InvoiceLine> invoiceLineList;
 
-    public Invoice(Long invoiceNumber, Date issueDate, String invoiceTypeCode, String invoiceCurrencyCode, String buyerReference, ProcessControl processControl, Seller seller, Buyer buyer, PaymentInstructions paymentInstructions, DocumentTotals documentTotals, List<VatBreakdown> vatBreakdownList, List<InvoiceLine> invoiceLineList) {
+    public Invoice(String invoiceNumber, Date issueDate, String invoiceTypeCode, String invoiceCurrencyCode, String buyerReference, ProcessControl processControl, Seller seller, Buyer buyer, PaymentInstructions paymentInstructions, DocumentTotals documentTotals, List<VatBreakdown> vatBreakdownList, List<InvoiceLine> invoiceLineList) {
         this.invoiceNumber = invoiceNumber;
         this.issueDate = issueDate;
         this.invoiceTypeCode = invoiceTypeCode;
@@ -72,7 +72,7 @@ public class Invoice {
         return vatAccountingCurrencyCode;
     }
     
-    public Long getInvoiceNumber() {
+    public String getInvoiceNumber() {
         return invoiceNumber;
     }
     
