@@ -28,7 +28,7 @@ import java.util.List;
  * @author Sikiric
  */
 public class XRechnungXML {  
-
+    //
     private String businessProcessType;
     private String specificationIdentifier;
     private String invoiceNumber;
@@ -82,6 +82,7 @@ public class XRechnungXML {
     private String buyerReference;
     private String sellerIdentifier;
     private String sellerIdentifierIdentificationSchemeIdentifier;
+    //BT-27 MUSS
     private String sellerName;
     private String sellerAdditionalLegalInformation;
     private String sellerLegalRegistrationIdentifier;
@@ -104,6 +105,7 @@ public class XRechnungXML {
     private String sellerTaxregistrationIdentifier;
     private String buyerIdentifier;
     private String buyerIdentifierIdentificationSchemeIdentifier;
+    //BT-44 MUSS
     private String buyerName;
     private String buyerLegalRegistrationIdentifier;
     private String buyerLegalRegistrationIdentifierIdentificationSchemeIdentifier;
@@ -164,6 +166,7 @@ public class XRechnungXML {
     private String bankAssignedCreditorIdentifier;
     private String remittanceInformation;
     private String vatAccountingCurrencyCode;
+    //BT-5 MUSS
     private String invoiceCurrencyCode;
     private String payeeIdentifier;
     private String payeeIdentifierIdentificationSchemeIdentifier;
@@ -235,7 +238,7 @@ public class XRechnungXML {
     
     private Invoice createInvoice() {              
         
-        ProcessControl processControl = new ProcessControl("specificationidentifier");
+        ProcessControl processControl = new ProcessControl("urn:cen.eu:en16931:2017");
         SellerContact sellerContact = new SellerContact("Stadt", "Postleitzahl", "Land");
         SellerPostalAddress sellerPostalAddress = new SellerPostalAddress("Name des Kontakts", "Telefonnummer des Kontakts", "Emailadresse des Kontakts"); 
         Seller seller = new Seller("Firmenname", sellerContact, sellerPostalAddress);

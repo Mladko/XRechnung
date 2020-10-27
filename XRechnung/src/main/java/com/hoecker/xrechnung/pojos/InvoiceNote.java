@@ -10,19 +10,19 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class InvoiceNote {
-    private String invoiceNoteSubjectCode;
+    private String paymentTerms;
     private final String invoiceNote;
 
     public InvoiceNote(String invoiceNote) {
         this.invoiceNote = invoiceNote;
     }
 
-    public String getInvoiceNoteSubjectCode() {
-        return invoiceNoteSubjectCode;
+    public String getPaymentTerms() {
+        return paymentTerms;
     }
 
-    public void setInvoiceNoteSubjectCode(String invoiceNoteSubjectCode) {
-        this.invoiceNoteSubjectCode = invoiceNoteSubjectCode;
+    public void setPaymentTerms(String paymentTerms) {
+        this.paymentTerms = paymentTerms;
     }
 
     public String getInvoiceNote() {
