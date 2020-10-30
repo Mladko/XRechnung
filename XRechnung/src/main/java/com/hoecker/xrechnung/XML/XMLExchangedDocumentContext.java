@@ -10,13 +10,13 @@ import com.hoecker.xrechnung.pojos.Invoice;
  *
  * @author Sikiric
  */
-public class XMLExchangeDocumentContext {
+public class XMLExchangedDocumentContext {
     //BT-23
     private String businessProcessType;
     //BT-24 MUSS   
     private final String specificationIdentifier;
 
-    public XMLExchangeDocumentContext(Invoice i) {
+    public XMLExchangedDocumentContext(Invoice i) {
         this.specificationIdentifier = i.getProcessControl().getSpecificationidentifier();
     }
 

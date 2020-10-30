@@ -23,10 +23,10 @@ public class Seller {
     private String sellerElectronicAddress;
     
     //Classes
-    private final SellerContact sellerContact;
     private final SellerPostalAddress sellerPostalAddress;
+    private final SellerContact sellerContact;
 
-    public Seller(String sellerName, SellerContact sellerContact, SellerPostalAddress sellerPostalAddress) {
+    public Seller(String sellerName, SellerPostalAddress sellerPostalAddress, SellerContact sellerContact) {
         this.sellerName = sellerName;
         this.sellerContact = sellerContact;
         this.sellerPostalAddress = sellerPostalAddress;
@@ -40,15 +40,15 @@ public class Seller {
     public String getSellerName() {
         return sellerName;
     }
-    
-    public SellerContact getSellerContact() {
-        return sellerContact;
-    }
-    
+
     public SellerPostalAddress getSellerPostalAddress() {
         return sellerPostalAddress;
     }
-    
+
+    public SellerContact getSellerContact() {
+        return sellerContact;
+    }
+         
     public void setSellerTradingName(String sellerTradingName) {
         this.sellerTradingName = sellerTradingName;
     }
