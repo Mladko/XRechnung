@@ -12,9 +12,9 @@ package com.hoecker.xrechnung.pojos;
 public class AdditionalSupportingDocument {
     
     private final String supportingDocumentReference;
-    private String supportingDocumentDescription;
-    private String externalDocumentLocation;
-    private String attachedDocument;
+    private String supportingDocumentDescription = "";
+    private String externalDocumentLocation = "";
+    private String attachedDocument = "";
     
      public AdditionalSupportingDocument(String supportingDocumentReference) {
         this.supportingDocumentReference = supportingDocumentReference;

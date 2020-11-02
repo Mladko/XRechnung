@@ -25,7 +25,7 @@ public class XMLSupplyChainTradeTransaction {
         this.applicableHeaderTradeAgreement = new XMLApplicableHeaderTradeAgreement(i);
         this.applicableHeaderTradeDelivery = new XMLApplicableHeaderTradeDelivery(i);
         this.applicableHeaderTradeSettlement = new XMLApplicableHeaderTradeSettlement(i);
-        if (i.getInvoiceLineList() != null && i.getInvoiceLineList().isEmpty()) {
+        if (i.getInvoiceLineList() != null && !i.getInvoiceLineList().isEmpty()) {
             for (InvoiceLine il : i.getInvoiceLineList()) {
                 this.includedSupplyChainTradeLineItemList.add(new XMLIncludedSupplyChainTradeLineItem(il));
             }

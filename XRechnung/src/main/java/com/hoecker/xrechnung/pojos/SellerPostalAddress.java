@@ -11,12 +11,12 @@ package com.hoecker.xrechnung.pojos;
  */
 public class SellerPostalAddress {
 
-    private String sellerAddressLine1;
-    private String sellerAddressLine2;
-    private String sellerAddressLine3;
+    private String sellerAddressLine1 = "";
+    private String sellerAddressLine2 = "";
+    private String sellerAddressLine3 = "";
     private final String sellerCity;
     private final String sellerPostCode;
-    private String sellerCountrySubdivision;
+    private String sellerCountrySubdivision = "";
     private final String sellerCountryCode;
 
     public SellerPostalAddress(String sellerCity, String sellerPostCode, String sellerCountryCode) {

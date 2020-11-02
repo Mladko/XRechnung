@@ -6,8 +6,6 @@ package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
 import com.hoecker.xrechnung.pojos.InvoiceNote;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -27,8 +25,8 @@ public class XMLExchangedDocument {
     public XMLExchangedDocument(Invoice i) {
         this.invoiceNumber = i.getInvoiceNumber();
         this.invoiceTypeCode = i.getInvoiceTypeCode();
-        DateFormat formatter = new SimpleDateFormat("yyyyMMdd");        
-        this.invoiceIssueDate = formatter.format(i.getIssueDate());
+//        DateFormat formatter = new SimpleDateFormat("yyyyMMdd");        
+        this.invoiceIssueDate = i.getIssueDate();
     }
 
     public void setInvoiceNodeList(List<InvoiceNote> invoiceNodeList) {

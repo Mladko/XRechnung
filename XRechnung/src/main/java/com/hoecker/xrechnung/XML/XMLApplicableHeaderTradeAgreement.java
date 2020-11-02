@@ -12,7 +12,7 @@ import com.hoecker.xrechnung.pojos.Invoice;
  */
 public class XMLApplicableHeaderTradeAgreement {
 
-    private final String buyerReference;    
+    private final String buyerReference;
     private final String salesOrderReference;
     private final String purchaseOrderReference;
     private final String contractReference;
@@ -38,42 +38,45 @@ public class XMLApplicableHeaderTradeAgreement {
         this.buyerReference = i.getBuyerReference();
         this.salesOrderReference = i.getSalesorderReference();
         this.purchaseOrderReference = i.getPurchaseOrderReference();
-        this.contractReference = i.getContractReference();       
+        this.contractReference = i.getContractReference();
         this.projectReference = i.getProjectReference();
         this.projectName = "Project reference";
         this.sellerTradeParty = new XMLSellerTradeParty(i);
         this.buyerTradeParty = new XMLBuyerTradeParty(i);
         this.sellerTaxRepresentativeTradeParty = new XMLSellerTaxRepresentativeTradeParty(i);
-    }  
+    }
 
     public String getXML() {
-        String xml = "        <ram:ApplicableHeaderTradeAgreement>\n"
-                + "            <ram:BuyerReference>" + this.getBuyerReference() + "</ram:BuyerReference>\n";
-        xml = xml + sellerTradeParty.getXML();
-        xml = xml + buyerTradeParty.getXML();
-        xml = xml + sellerTaxRepresentativeTradeParty.getXML();
-        if (!this.getSalesOrderReference().equals("")) {
-            xml = xml + "            <ram:SellerOrderReferencedDocument>\n"
-                + "                <ram:IssuerAssignedID>" + this.getSalesOrderReference() + "</ram:IssuerAssignedID>\n"
-                + "            </ram:SellerOrderReferencedDocument>\n";
+        String xml = "";
+        if (!this.getBuyerReference().equals("")) {
+            xml = xml +"        <ram:ApplicableHeaderTradeAgreement>\n"
+                    + "            <ram:BuyerReference>" + this.getBuyerReference() + "</ram:BuyerReference>\n";
+            xml = xml + sellerTradeParty.getXML();
+            xml = xml + buyerTradeParty.getXML();
+            xml = xml + sellerTaxRepresentativeTradeParty.getXML();
+            if (!this.getSalesOrderReference().equals("")) {
+                xml = xml + "            <ram:SellerOrderReferencedDocument>\n"
+                        + "                <ram:IssuerAssignedID>" + this.getSalesOrderReference() + "</ram:IssuerAssignedID>\n"
+                        + "            </ram:SellerOrderReferencedDocument>\n";
+            }
+            if (!this.getPurchaseOrderReference().equals("")) {
+                xml = xml + "            <ram:BuyerOrderReferencedDocument>\n"
+                        + "                <ram:IssuerAssignedID>" + this.getPurchaseOrderReference() + "</ram:IssuerAssignedID>\n"
+                        + "            </ram:BuyerOrderReferencedDocument>\n";
+            }
+            if (!this.getContractReference().equals("")) {
+                xml = xml + "            <ram:ContractReferencedDocument>\n"
+                        + "                <ram:IssuerAssignedID>" + this.getContractReference() + "</ram:IssuerAssignedID>\n"
+                        + "            </ram:ContractReferencedDocument>\n";
+            }
+            if (!this.getProjectReference().equals("")) {
+                xml = xml + "            <ram:SpecifiedProcuringProject>                \n"
+                        + "                <ram:ID>" + this.getProjectReference() + "</ram:ID>\n"
+                        + "                <ram:Name>" + this.getProjectName() + "</ram:Name>\n"
+                        + "            </ram:SpecifiedProcuringProject>\n";
+            }
+            xml = xml + "        </ram:ApplicableHeaderTradeAgreement>\n";
         }
-        if (!this.getPurchaseOrderReference().equals("")) {
-            xml = xml + "            <ram:BuyerOrderReferencedDocument>\n"
-                + "                <ram:IssuerAssignedID>" + this.getPurchaseOrderReference() + "</ram:IssuerAssignedID>\n"
-                + "            </ram:BuyerOrderReferencedDocument>\n";
-        }
-        if (!this.getContractReference().equals("")) {
-            xml = xml + "            <ram:ContractReferencedDocument>\n"
-                + "                <ram:IssuerAssignedID>" + this.getContractReference() + "</ram:IssuerAssignedID>\n"
-                + "            </ram:ContractReferencedDocument>\n";
-        }
-        if (!this.getProjectReference().equals("")) {
-            xml = xml + "            <ram:SpecifiedProcuringProject>                \n"
-                + "                <ram:ID>" + this.getProjectReference() + "</ram:ID>\n"
-                + "                <ram:Name>" + this.getProjectName() + "</ram:Name>\n"
-                + "            </ram:SpecifiedProcuringProject>\n";
-        }       
-        xml = xml + "        </ram:ApplicableHeaderTradeAgreement>\n";
         return xml;
     }
 
@@ -113,6 +116,4 @@ public class XMLApplicableHeaderTradeAgreement {
         return sellerTaxRepresentativeTradeParty;
     }
 
-   
-    
 }

@@ -12,8 +12,8 @@ package com.hoecker.xrechnung.pojos;
 public class CreditTransfer {
 
     private final String paymentAccountIdentifier;
-    private String paymentAccountName;
-    private String paymentServiceProviderIdentifier;
+    private String paymentAccountName = "";
+    private String paymentServiceProviderIdentifier = "";
 
     public CreditTransfer(String paymentAccountIdentifier) {
         this.paymentAccountIdentifier = paymentAccountIdentifier;

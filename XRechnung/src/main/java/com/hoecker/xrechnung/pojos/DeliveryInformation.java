@@ -5,7 +5,6 @@
  */
 package com.hoecker.xrechnung.pojos;
 
-import java.util.Date;
 
 /**
  *
@@ -15,15 +14,17 @@ public class DeliveryInformation {
     
     private final String deliverToPartyName;
     private final String deliverToLocationIdentifier;
-    private final Date actualDeliveryDate;
+    private final String actualDeliveryDate;
     
     private InvoicingPeriod invoicingPeriod;
     private DeliverToAddress deliverToAddress;
 
-    public DeliveryInformation(String deliverToPartyName, String deliverToLocationIdentifier, Date actualDeliveryDate) {
+    public DeliveryInformation(String deliverToPartyName, String deliverToLocationIdentifier, String actualDeliveryDate) {
         this.deliverToPartyName = deliverToPartyName;
         this.deliverToLocationIdentifier = deliverToLocationIdentifier;
         this.actualDeliveryDate = actualDeliveryDate;
+        this.invoicingPeriod = new InvoicingPeriod("", "");
+        this.deliverToAddress = new DeliverToAddress("", "", "");
     }
 //<editor-fold defaultstate="collapsed" desc="Getter & Setter">
     
@@ -51,7 +52,7 @@ public class DeliveryInformation {
         return deliverToLocationIdentifier;
     }
     
-    public Date getActualDeliveryDate() {
+    public String getActualDeliveryDate() {
         return actualDeliveryDate;
     }
     

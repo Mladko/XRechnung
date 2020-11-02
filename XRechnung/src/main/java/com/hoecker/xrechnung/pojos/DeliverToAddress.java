@@ -11,12 +11,12 @@ package com.hoecker.xrechnung.pojos;
  */
 public class DeliverToAddress {
 
-    private String deliverToAddressLine1;
-    private String deliverToAddressLine2;
-    private String deliverToAddressLine3;
+    private String deliverToAddressLine1 = "";
+    private String deliverToAddressLine2 = "";
+    private String deliverToAddressLine3 = "";
     private final String deliverToCity;
     private final String deliverToPostCode;
-    private String deliverToCountrySubdivision;
+    private String deliverToCountrySubdivision = "";
     private final String deliverToCountryCode;
 
     public DeliverToAddress(String deliverToCity, String deliverToPostCode, String deliverToCountryCode) {

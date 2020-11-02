@@ -12,7 +12,7 @@ import com.hoecker.xrechnung.pojos.Invoice;
  */
 public class XMLExchangedDocumentContext {
     //BT-23
-    private String businessProcessType;
+    private String businessProcessType = "";
     //BT-24 MUSS   
     private final String specificationIdentifier;
 

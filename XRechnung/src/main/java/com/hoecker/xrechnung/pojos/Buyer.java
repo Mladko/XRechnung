@@ -12,11 +12,11 @@ package com.hoecker.xrechnung.pojos;
 public class Buyer {
     //Attribute
     private final String buyerName;
-    private String buyerTradingName;
-    private String buyerIdentifier;
-    private String buyerLegalRegistrationIdentifier;
-    private String buyerVATidentifier;
-    private String buyerEletcronicAddress;
+    private String buyerTradingName = "";
+    private String buyerIdentifier = "";
+    private String buyerLegalRegistrationIdentifier = "";
+    private String buyerVATidentifier = "";
+    private String buyerEletcronicAddress = "";
 
     //Klassen
     private final BuyerPostalAddress buyerPostalAddress;
@@ -25,6 +25,7 @@ public class Buyer {
     public Buyer(String buyerName, BuyerPostalAddress buyerPostalAddress) {
         this.buyerName = buyerName;
         this.buyerPostalAddress = buyerPostalAddress;
+        this.buyerContact = new BuyerContact("", "", "");
     }
     
     public String getBuyerName() {

@@ -5,9 +5,6 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import org.apache.commons.lang.RandomStringUtils;
 
 /**
  *
@@ -39,60 +36,70 @@ public class XMLApplicableHeaderTradeDelivery {
         this.deliverToCity = i.getDeliveryInformation().getDeliverToAddress().getDeliverToCity();
         this.deliverToCountryCode = i.getDeliveryInformation().getDeliverToAddress().getDeliverToCountryCode();
         this.deliverToCountrySubdivision = i.getDeliveryInformation().getDeliverToAddress().getDeliverToCountrySubdivision();
-        DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-        this.actualDeliveryDate = formatter.format(i.getDeliveryInformation().getActualDeliveryDate());
+
+        this.actualDeliveryDate = i.getDeliveryInformation().getActualDeliveryDate();
         this.despatchAdviceReference = i.getDesptachAdviceReference();
         this.receivingAdviceReference = i.getReceivingAdvieReference();
     }
 
     public String getXML() {
-        String xml = "        <ram:ApplicableHeaderTradeDelivery>\n"
-                + "            <ram:ShipToTradeParty>\n";
-        if (!this.getDeliverToLocationIdentifier().equals("")) {
-            xml = xml + "                <ram:ID>" + this.getDeliverToLocationIdentifier() + "</ram:ID>\n";
-        }
-        if (!this.getDeliverToPartyname().equals("")) {
-            xml = xml + "                <ram:Name>" + this.getDeliverToPartyname() + "</ram:Name>\n";
-        }
-        if (!this.getDeliverToPostcode().equals("") && !this.getDeliverToCity().equals("") && !this.getDeliverToCountryCode().equals("")) {
-            xml = xml + "                <ram:PostalTradeAddress>\n"
-                    + "                    <ram:PostcodeCode>" + this.getDeliverToPostcode() + "</ram:PostcodeCode>\n";
-            if (!this.getDeliverToAddressline1().equals("")) {
-                xml = xml + "                    <ram:LineOne>" + this.getDeliverToAddressline1() + "</ram:LineOne>\n";
+        String xml = "";
+        if (!this.getDeliverToLocationIdentifier().equals("") || !this.getDeliverToPartyname().equals("")
+                || !this.getDeliverToPostcode().equals("") || !this.getDeliverToCity().equals("")
+                || !this.getDeliverToCountryCode().equals("") || !this.getDeliverToAddressline1().equals("")
+                || !this.getDeliverToAddressline2().equals("") || !this.getDeliverToAddressline3().equals("")
+                || !this.getDeliverToCountrySubdivision().equals("") || !this.getActualDeliveryDate().equals("")
+                || !this.getDespatchAdviceReference().equals("") || !this.getReceivingAdviceReference().equals("")) {
+            xml = xml + "        <ram:ApplicableHeaderTradeDelivery>\n"
+                    + "            <ram:ShipToTradeParty>\n";
+            if (!this.getDeliverToLocationIdentifier().equals("")) {
+                xml = xml + "                <ram:ID>" + this.getDeliverToLocationIdentifier() + "</ram:ID>\n";
             }
-            if (!this.getDeliverToAddressline2().equals("")) {
-                xml = xml + "                    <ram:LineTwo>" + this.getDeliverToAddressline2() + "</ram:LineTwo>\n";
+            if (!this.getDeliverToPartyname().equals("")) {
+                xml = xml + "                <ram:Name>" + this.getDeliverToPartyname() + "</ram:Name>\n";
             }
-            if (!this.getDeliverToAddressline3().equals("")) {
-                xml = xml + "                    <ram:LineThree>" + this.getDeliverToAddressline3() + "</ram:LineThree>\n";
+            if (!this.getDeliverToPostcode().equals("") && !this.getDeliverToCity().equals("") && !this.getDeliverToCountryCode().equals("")) {
+                xml = xml + "                <ram:PostalTradeAddress>\n"
+                        + "                    <ram:PostcodeCode>" + this.getDeliverToPostcode() + "</ram:PostcodeCode>\n";
+                if (!this.getDeliverToAddressline1().equals("")) {
+                    xml = xml + "                    <ram:LineOne>" + this.getDeliverToAddressline1() + "</ram:LineOne>\n";
+                }
+                if (!this.getDeliverToAddressline2().equals("")) {
+                    xml = xml + "                    <ram:LineTwo>" + this.getDeliverToAddressline2() + "</ram:LineTwo>\n";
+                }
+                if (!this.getDeliverToAddressline3().equals("")) {
+                    xml = xml + "                    <ram:LineThree>" + this.getDeliverToAddressline3() + "</ram:LineThree>\n";
+                }
+                xml = xml + "                    <ram:CityName>" + this.getDeliverToCity() + "</ram:CityName>\n"
+                        + "                    <ram:CountryID>" + this.getDeliverToCountryCode() + "</ram:CountryID>\n";
+                if (!this.getDeliverToCountrySubdivision().equals("")) {
+                    xml = xml + "                    <ram:CountrySubDivisionName>" + this.getDeliverToCountrySubdivision() + "</ram:CountrySubDivisionName>\n";
+                }
+                xml = xml + "                </ram:PostalTradeAddress>\n";
             }
-            xml = xml + "                    <ram:CityName>" + this.getDeliverToCity() + "</ram:CityName>\n"
-                    + "                    <ram:CountryID>" + this.getDeliverToCountryCode() + "</ram:CountryID>\n";
-            if (!this.getDeliverToCountrySubdivision().equals("")) {
-                xml = xml + "                    <ram:CountrySubDivisionName>" + this.getDeliverToCountrySubdivision() + "</ram:CountrySubDivisionName>\n";
+            xml = xml + "            </ram:ShipToTradeParty>\n";
+            if (!this.getActualDeliveryDate().equals("")) {
+                xml = xml + "            <ram:ActualDeliverySupplyChainEvent>\n"
+                        + "            <ram:ActualDeliverySupplyChainEvent>\n"
+                        + "                <ram:OccurrenceDateTime>\n"
+                        + "                    <udt:DateTimeString format=\"102\">" + this.getActualDeliveryDate() + "</udt:DateTimeString>\n"
+                        + "                </ram:OccurrenceDateTime>\n"
+                        + "            </ram:ActualDeliverySupplyChainEvent>\n";
             }
-            xml = xml + "                </ram:PostalTradeAddress>\n";
+            if (!this.getDespatchAdviceReference().equals("")) {
+                xml = xml + "            <ram:DespatchAdviceReferencedDocument>\n"
+                        + "                <ram:IssuerAssignedID>" + this.getDespatchAdviceReference() + "</ram:IssuerAssignedID>\n"
+                        + "            </ram:DespatchAdviceReferencedDocument>\n";
+            }
+            if (!this.getReceivingAdviceReference().equals("")) {
+                xml = xml + "            <ram:ReceivingAdviceReferencedDocument>\n"
+                        + "                <ram:IssuerAssignedID>" + this.getReceivingAdviceReference() + "</ram:IssuerAssignedID>       \n"
+                        + "            </ram:ReceivingAdviceReferencedDocument>\n";
+            }
+            xml = xml + "        </ram:ApplicableHeaderTradeDelivery>\n";
+        } else {
+            xml = xml + "        <ram:ApplicableHeaderTradeDelivery/>\n";
         }
-        xml = xml + "            </ram:ShipToTradeParty>\n";
-        if (!this.getActualDeliveryDate().equals("")) {
-            xml = xml + "            <ram:ActualDeliverySupplyChainEvent>\n"
-                    + "            <ram:ActualDeliverySupplyChainEvent>\n"
-                    + "                <ram:OccurrenceDateTime>\n"
-                    + "                    <udt:DateTimeString format=\"102\">" + this.getActualDeliveryDate() + "</udt:DateTimeString>\n"
-                    + "                </ram:OccurrenceDateTime>\n"
-                    + "            </ram:ActualDeliverySupplyChainEvent>\n";
-        }
-        if (!this.getDespatchAdviceReference().equals("")) {
-            xml = xml + "            <ram:DespatchAdviceReferencedDocument>\n"
-                    + "                <ram:IssuerAssignedID>" + this.getDespatchAdviceReference() + "</ram:IssuerAssignedID>\n"
-                    + "            </ram:DespatchAdviceReferencedDocument>\n";
-        }
-        if (!this.getReceivingAdviceReference().equals("")) {
-            xml = xml + "            <ram:ReceivingAdviceReferencedDocument>\n"
-                    + "                <ram:IssuerAssignedID>" + this.getReceivingAdviceReference() + "</ram:IssuerAssignedID>       \n"
-                    + "            </ram:ReceivingAdviceReferencedDocument>\n";
-        }
-        xml = xml + "        </ram:ApplicableHeaderTradeDelivery>\n";
         return xml;
     }
 

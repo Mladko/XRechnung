@@ -10,7 +10,7 @@ package com.hoecker.xrechnung.pojos;
  * @author Sikiric
  */
 public class InvoiceNote {
-    private String paymentTerms;
+    private String paymentTerms = "";
     private final String invoiceNote;
 
     public InvoiceNote(String invoiceNote) {

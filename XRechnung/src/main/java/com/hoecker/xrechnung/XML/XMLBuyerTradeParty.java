@@ -5,14 +5,14 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
-import java.util.List;
 
 /**
  *
  * @author Sikiric
  */
 public class XMLBuyerTradeParty {
-    private final String buyerIdentifier;  
+
+    private final String buyerIdentifier;
     private final String buyerName;
     private final String buyerLegalRegistrationIdentifier;
     private final String buyerTradingName;
@@ -29,10 +29,10 @@ public class XMLBuyerTradeParty {
     private final String buyerElectronicaddress;
     private final String buyerElectronicaddressIdentificationSchemeIdentifier;
     private final String buyerVATidentifier;
-    
+
     public XMLBuyerTradeParty(Invoice i) {
         this.buyerIdentifier = i.getBuyer().getBuyerIdentifier();
-        this.buyerName = i.getBuyer().getBuyerName();        
+        this.buyerName = i.getBuyer().getBuyerName();
         this.buyerLegalRegistrationIdentifier = i.getBuyer().getBuyerLegalRegistrationIdentifier();
         this.buyerTradingName = i.getBuyer().getBuyerTradingName();
         this.buyerContactPoint = i.getBuyer().getBuyerContact().getContactPoint();
@@ -49,26 +49,31 @@ public class XMLBuyerTradeParty {
         this.buyerElectronicaddressIdentificationSchemeIdentifier = "EM";
         this.buyerVATidentifier = i.getBuyer().getBuyerVATidentifier();
     }
+
     public String getXML() {
-       String xml = "<ram:BuyerTradeParty>\n";
-        if (!this.buyerIdentifier.equals("")) {            
+        String xml = "            <ram:BuyerTradeParty>\n";
+        if (!this.buyerIdentifier.equals("")) {
             xml = xml + "                <ram:ID>" + this.buyerIdentifier + "</ram:ID>\n";
         }
-        xml = xml + "                <ram:Name>" + this.getBuyerName() + "</ram:Name>\n";       
+        xml = xml + "                <ram:Name>" + this.getBuyerName() + "</ram:Name>\n";
         if (!this.getBuyerTradingName().equals("")) {
             xml = xml + "                <ram:SpecifiedLegalOrganization>\n"
                     + "                    <ram:TradingBusinessName>" + this.getBuyerTradingName() + "</ram:TradingBusinessName>\n"
                     + "                </ram:SpecifiedLegalOrganization>\n";
         }
-        xml = xml + "                <ram:DefinedTradeContact>\n"
-                + "                    <ram:PersonName>" + this.getBuyerContactPoint() + "</ram:PersonName>\n"
-                + "                    <ram:TelephoneUniversalCommunication>\n"
-                + "                        <ram:CompleteNumber>" + this.getBuyerContactTelephonenumber() + "</ram:CompleteNumber>\n"
-                + "                    </ram:TelephoneUniversalCommunication>\n"
-                + "                    <ram:EmailURIUniversalCommunication>\n"
-                + "                        <ram:URIID>" + this.getBuyerContactEmailaddress() + "</ram:URIID>\n"
-                + "                    </ram:EmailURIUniversalCommunication>\n"
-                + "                </ram:DefinedTradeContact>\n";
+        if (!this.getBuyerContactPoint().equals("") || !this.getBuyerContactTelephonenumber().equals("")
+                || !this.getBuyerContactEmailaddress().equals("")) {
+
+            xml = xml + "                <ram:DefinedTradeContact>\n"
+                    + "                    <ram:PersonName>" + this.getBuyerContactPoint() + "</ram:PersonName>\n"
+                    + "                    <ram:TelephoneUniversalCommunication>\n"
+                    + "                        <ram:CompleteNumber>" + this.getBuyerContactTelephonenumber() + "</ram:CompleteNumber>\n"
+                    + "                    </ram:TelephoneUniversalCommunication>\n"
+                    + "                    <ram:EmailURIUniversalCommunication>\n"
+                    + "                        <ram:URIID>" + this.getBuyerContactEmailaddress() + "</ram:URIID>\n"
+                    + "                    </ram:EmailURIUniversalCommunication>\n"
+                    + "                </ram:DefinedTradeContact>\n";
+        }
         xml = xml + "                <ram:PostalTradeAddress>\n"
                 + "                    <ram:PostcodeCode>" + this.getBuyerPostcode() + "</ram:PostcodeCode>\n";
         if (!this.getBuyerAddressline1().equals("")) {
@@ -96,9 +101,9 @@ public class XMLBuyerTradeParty {
             xml = xml + "                <ram:SpecifiedTaxRegistration>\n"
                     + "                    <ram:ID schemeID=\"VA\">" + this.getBuyerVATidentifier() + "</ram:ID>\n"
                     + "                </ram:SpecifiedTaxRegistration>   \n";
-        }        
+        }
         xml = xml + "            </ram:BuyerTradeParty>\n";
-       return xml;
+        return xml;
     }
 
     public String getBuyerIdentifier() {
@@ -168,5 +173,5 @@ public class XMLBuyerTradeParty {
     public String getBuyerVATidentifier() {
         return buyerVATidentifier;
     }
-    
+
 }

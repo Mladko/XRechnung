@@ -14,8 +14,8 @@ import java.util.List;
 public class PaymentInstructions {
     //Attribute
     private final String paymentMeansTypeCode;
-    private String paymentMeansText;
-    private String remittanceInformation;
+    private String paymentMeansText = "";
+    private String remittanceInformation = "";
     
     //Klassen
     private List<CreditTransfer> creditTransferList;
@@ -23,6 +23,8 @@ public class PaymentInstructions {
     private DirectDebt directDebt;
 
     public PaymentInstructions(String paymentMeansTypeCode) {
+        this.directDebt = new DirectDebt("", "", "");
+        this.paymentCardInformation = new PaymentCardInformation("");
         this.paymentMeansTypeCode = paymentMeansTypeCode;
     }
 //<editor-fold defaultstate="collapsed" desc="Getter & Setter">

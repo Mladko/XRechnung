@@ -56,7 +56,7 @@ public class XMLSellerTradeParty {
     }
 
     public String getXML() {
-        String xml = "<ram:SellerTradeParty>\n";
+        String xml = "            <ram:SellerTradeParty>\n";
         if (this.getSellerIdentifierList() != null && !this.getSellerIdentifierList().isEmpty()) {
             String ids = "";
             for (String id : this.getSellerIdentifierList()) {

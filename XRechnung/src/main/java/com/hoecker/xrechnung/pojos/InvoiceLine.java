@@ -5,6 +5,7 @@
  */
 package com.hoecker.xrechnung.pojos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,18 +15,18 @@ import java.util.List;
 public class InvoiceLine {
     //Atttribute
     private final String invoiceLineIdentifier;
-    private String invoiceLineNote;
-    private String invoiceLineObjectIdentifier;
+    private String invoiceLineNote = "";
+    private String invoiceLineObjectIdentifier = "";
     private final String invoicedQuantity;
     private final String invoicedQuantityUnitOfMeasureCode;
     private final String invoicedLineNetAmount;
-    private String referencedPurchaseOrderLineReference;
-    private String invoiceLineBuyerAccountingReference;
+    private String referencedPurchaseOrderLineReference = "";
+    private String invoiceLineBuyerAccountingReference = "";
     
     //Klassen
-    private InvoiceLinePeriod invoiceLinePeriod;
-    private List<InvoiceLineAllowances> invoiceLineAllowancesList;
-    private List<InvoiceLineCharges> invoiceLineChargesList;
+    private InvoiceLinePeriod invoiceLinePeriod = new InvoiceLinePeriod("", "");
+    private List<InvoiceLineAllowances> invoiceLineAllowancesList = new ArrayList<>();
+    private List<InvoiceLineCharges> invoiceLineChargesList = new ArrayList<>();
     private final PriceDetails priceDetails;
     private final LineVATinformation lineVATinformation;
     private final ItemInformation itemInformation;

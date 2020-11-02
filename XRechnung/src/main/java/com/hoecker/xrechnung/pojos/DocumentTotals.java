@@ -12,14 +12,14 @@ package com.hoecker.xrechnung.pojos;
 public class DocumentTotals {
 
     private final String sumInvoiceLineNetAmount;
-    private String sumOfAllowancesOnDocumentLevel;
-    private String sumChargesOnDocumentLevel;
+    private String sumOfAllowancesOnDocumentLevel = "";
+    private String sumChargesOnDocumentLevel = "";
     private final String invoiceTotalAmountWithoutVAT;
-    private String invoiceTotalVATamount;
-    private String invoiveTotalVATamountInAccountingCurrency;
-    private String invoiceTotalAmountWithVAT;
-    private String paidAmount;
-    private String roundingAmount;
+    private String invoiceTotalVATamount = "";
+    private String invoiveTotalVATamountInAccountingCurrency = "";
+    private String invoiceTotalAmountWithVAT = "";
+    private String paidAmount = "";
+    private String roundingAmount = "";
     private final String amountDueForPayment;
 
     public DocumentTotals(String sumInvoiceLineNetAmount, String invoiceTotalAmountWithoutVAT, String amountDueForPayment) {

@@ -35,33 +35,40 @@ public class XMLSellerTaxRepresentativeTradeParty {
     }
 
     String getXML() {
-        String xml = "            <ram:SellerTaxRepresentativeTradeParty>\n"
-                + "                <ram:Name>" + this.getSellerTaxRepresentativeName() + "</ram:Name>\n"
-                + "                <ram:SpecifiedLegalOrganization>  \n"
-                + "                    <ram:ID schemeID=\"VA\">" + this.getSellerTaxRepresentativeVATidentifier() + "</ram:ID>\n"
-                + "                </ram:SpecifiedLegalOrganization>\n"
-                + "                <ram:PostalTradeAddress>\n";
-        if (!this.getTaxRepresentativePostcode().equals("")) {
-            xml = xml + "                    <ram:PostcodeCode>" + this.getTaxRepresentativePostcode() + "</ram:PostcodeCode>\n";
+        String xml = "";
+        if (!this.getSellerTaxRepresentativeName().equals("") || !this.getSellerTaxRepresentativeVATidentifier().equals("")
+                || !this.getTaxRepresentativePostcode().equals("") || !this.getTaxRepresentativeAddressline1().equals("")
+                || !this.getTaxRepresentativeAddressline2().equals("") || !this.getTaxRepresentativeAddressline3().equals("")
+                || !this.getTaxRepresentativeCity().equals("") || !this.getTaxRepresentativeCountryCode().equals("")
+                || !this.getTaxRepresentativeCountrySubdivision().equals("")) {
+            xml = xml + "            <ram:SellerTaxRepresentativeTradeParty>\n"
+                    + "                <ram:Name>" + this.getSellerTaxRepresentativeName() + "</ram:Name>\n"
+                    + "                <ram:SpecifiedLegalOrganization>  \n"
+                    + "                    <ram:ID schemeID=\"VA\">" + this.getSellerTaxRepresentativeVATidentifier() + "</ram:ID>\n"
+                    + "                </ram:SpecifiedLegalOrganization>\n"
+                    + "                <ram:PostalTradeAddress>\n";
+            if (!this.getTaxRepresentativePostcode().equals("")) {
+                xml = xml + "                    <ram:PostcodeCode>" + this.getTaxRepresentativePostcode() + "</ram:PostcodeCode>\n";
+            }
+            if (!this.getTaxRepresentativeAddressline1().equals("")) {
+                xml = xml + "                    <ram:LineOne>" + this.getTaxRepresentativeAddressline1() + "</ram:LineOne>\n";
+            }
+            if (!this.getTaxRepresentativeAddressline2().equals("")) {
+                xml = xml + "                    <ram:LineTwo>" + this.getTaxRepresentativeAddressline2() + "</ram:LineTwo>\n";
+            }
+            if (!this.getTaxRepresentativeAddressline3().equals("")) {
+                xml = xml + "                    <ram:LineThree>" + this.getTaxRepresentativeAddressline3() + "</ram:LineThree>\n";
+            }
+            if (!this.getTaxRepresentativeCity().equals("")) {
+                xml = xml + "                    <ram:CityName>" + this.getTaxRepresentativeCity() + "</ram:CityName>\n";
+            }
+            xml = xml + "                    <ram:CountryID>" + this.getTaxRepresentativeCountryCode() + "</ram:CountryID>\n";
+            if (!this.getTaxRepresentativeCountrySubdivision().equals("")) {
+                xml = xml + "                    <ram:CountrySubDivisionName>" + this.getTaxRepresentativeCountrySubdivision() + "</ram:CountrySubDivisionName>\n";
+            }
+            xml = xml + "                </ram:PostalTradeAddress>\n"
+                    + "            </ram:SellerTaxRepresentativeTradeParty>\n";
         }
-        if (!this.getTaxRepresentativeAddressline1().equals("")) {
-            xml = xml + "                    <ram:LineOne>" + this.getTaxRepresentativeAddressline1() + "</ram:LineOne>\n";
-        }
-        if (!this.getTaxRepresentativeAddressline2().equals("")) {
-            xml = xml + "                    <ram:LineTwo>" + this.getTaxRepresentativeAddressline2() + "</ram:LineTwo>\n";
-        }
-        if (!this.getTaxRepresentativeAddressline3().equals("")) {
-            xml = xml + "                    <ram:LineThree>" + this.getTaxRepresentativeAddressline3() + "</ram:LineThree>\n";
-        }
-        if (!this.getTaxRepresentativeCity().equals("")) {
-            xml = xml + "                    <ram:CityName>" + this.getTaxRepresentativeCity() + "</ram:CityName>\n";
-        }
-        xml = xml + "                    <ram:CountryID>" + this.getTaxRepresentativeCountryCode() + "</ram:CountryID>\n";
-        if (!this.getTaxRepresentativeCountrySubdivision().equals("")) {
-            xml = xml + "                    <ram:CountrySubDivisionName>" + this.getTaxRepresentativeCountrySubdivision() + "</ram:CountrySubDivisionName>\n";
-        }
-        xml = xml + "                </ram:PostalTradeAddress>\n"
-                + "            </ram:SellerTaxRepresentativeTradeParty>\n";
         return xml;
     }
 

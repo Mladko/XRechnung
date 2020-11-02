@@ -7,8 +7,6 @@ package com.hoecker.xrechnung.XML;
 import com.hoecker.xrechnung.pojos.InvoiceLine;
 import com.hoecker.xrechnung.pojos.InvoiceLineAllowances;
 import com.hoecker.xrechnung.pojos.InvoiceLineCharges;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -31,12 +29,12 @@ public class XMLSpecifiedLineTradeSettlement {
     private final String invoiceLineBuyerAccountingReference;
 
     public XMLSpecifiedLineTradeSettlement(InvoiceLine il) {
-        DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+//        DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
         this.invoicedItemVATtypeCode = "VAT";
         this.invoicedItemVATcategoryCode = il.getLineVATinformation().getInvoicedItemVATcategoryCode();
         this.invoicedItemVATrate = il.getLineVATinformation().getInvoicedItemVATrate();
-        this.invoiceLinePeriodStartDate = formatter.format(il.getInvoiceLinePeriod().getInvoiceLineLeriodStartDate());
-        this.invoiceLinePeriodEndDate = formatter.format(il.getInvoiceLinePeriod().getInvoiceLineLeriodEndDate());
+        this.invoiceLinePeriodStartDate = il.getInvoiceLinePeriod().getInvoiceLineLeriodStartDate();
+        this.invoiceLinePeriodEndDate = il.getInvoiceLinePeriod().getInvoiceLineLeriodEndDate();
         this.invoiceLineAllowancesList = il.getInvoiceLineAllowancesList();
         this.invoiceLineChargesList = il.getInvoiceLineChargesList();
         this.invoiceLineNetAmount = il.getInvoicedLineNetAmount();

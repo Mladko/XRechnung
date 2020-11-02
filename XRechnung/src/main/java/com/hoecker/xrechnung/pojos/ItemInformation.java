@@ -14,12 +14,12 @@ import java.util.List;
 public class ItemInformation {
     //Attribute
     private final String itemName;
-    private String itemDescription;
-    private String itemSellersIdentifier;
-    private String itemBuyersIdentifier;
-    private String itemStandardIdentifier;
+    private String itemDescription = "";
+    private String itemSellersIdentifier = "";
+    private String itemBuyersIdentifier = "";
+    private String itemStandardIdentifier = "";
     private List<String> itemClassificationIdentifierList;
-    private String itemCountryOfOrigin;
+    private String itemCountryOfOrigin = "";
     //Klassen
     private List<ItemAttributes> itemAttributesList;
 

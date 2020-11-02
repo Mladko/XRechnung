@@ -5,7 +5,6 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.InvoiceLine;
-import java.util.List;
 
 /**
  *

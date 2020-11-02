@@ -12,12 +12,12 @@ package com.hoecker.xrechnung.pojos;
 public class DocumentLevelCharges {
 
     private final String documentLevelChargeAmount;
-    private String documentLevelChargeBaseAmount;
-    private String documentLevelChargePercentage;
+    private String documentLevelChargeBaseAmount = "";
+    private String documentLevelChargePercentage = "";
     private final String documentLevelChargeVATcategoryCode;
-    private String documentLevelChargeVATrate;
-    private String documentLevelChargeReason;
-    private String documentLevelChargeReasonCode;
+    private String documentLevelChargeVATrate = "";
+    private String documentLevelChargeReason = "";
+    private String documentLevelChargeReasonCode = "";
 
     public DocumentLevelCharges(String documentLevelChargeAmount, String documentLevelChargeVATcategoryCode) {
         this.documentLevelChargeAmount = documentLevelChargeAmount;

@@ -14,13 +14,13 @@ import java.util.List;
 public class Seller {
     //Attributes
     private final String sellerName;
-    private String sellerTradingName;
+    private String sellerTradingName = "";
     private List<String> sellerIdentifierList;
-    private String sellerLegalRegistrationIdentifier;
-    private String sellerVatIdentifier;
-    private String sellerTaxRegistrationIdentifier;
-    private String sellerAdditionalLegalInformation;
-    private String sellerElectronicAddress;
+    private String sellerLegalRegistrationIdentifier = "";
+    private String sellerVatIdentifier = "";
+    private String sellerTaxRegistrationIdentifier = "";
+    private String sellerAdditionalLegalInformation = "";
+    private String sellerElectronicAddress = "";
     
     //Classes
     private final SellerPostalAddress sellerPostalAddress;

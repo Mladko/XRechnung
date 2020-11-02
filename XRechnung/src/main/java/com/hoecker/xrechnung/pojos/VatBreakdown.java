@@ -15,8 +15,8 @@ public class VatBreakdown {
     private final String VATcategoryTaxAmount;
     private final String VATcategoryCode;
     private final String VATcategoryRate;
-    private String VATexemptionReasonText;
-    private String VATexemptionReasonCode;
+    private String VATexemptionReasonText = "";
+    private String VATexemptionReasonCode = "";
 
     public VatBreakdown(String VATcategoryTaxableAmount, String VATcategoryTaxAmount, String VATcategoryCode, String VATcategoryRate) {
         this.VATcategoryTaxableAmount = VATcategoryTaxableAmount;

@@ -12,10 +12,10 @@ package com.hoecker.xrechnung.pojos;
 public class InvoiceLineAllowances {
     
     private final String invoiceLineAllowanceAmount;
-    private String invoiceLineAllowanceBaseAmount;
-    private String invoiceLineAllowancePercentage;
-    private String invoiceLineAllowanceReason;
-    private String invoiceLineAllowanceReasonCode;
+    private String invoiceLineAllowanceBaseAmount = "";
+    private String invoiceLineAllowancePercentage = "";
+    private String invoiceLineAllowanceReason = "";
+    private String invoiceLineAllowanceReasonCode = "";
     
     public InvoiceLineAllowances(String invoiceLineAllowanceAmount) {
         this.invoiceLineAllowanceAmount = invoiceLineAllowanceAmount;

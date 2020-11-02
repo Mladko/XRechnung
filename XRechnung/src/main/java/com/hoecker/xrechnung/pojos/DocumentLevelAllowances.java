@@ -12,12 +12,12 @@ package com.hoecker.xrechnung.pojos;
 public class DocumentLevelAllowances {
     
     private final String documentLevelAllowancesAmount;
-    private String documentLevelAllowancesBaseAmount;
-    private String documentLevelAllowancesPercentages;
+    private String documentLevelAllowancesBaseAmount = "";
+    private String documentLevelAllowancesPercentages = "";
     private final String documentLevelAllowancesVATcategoryCode;
-    private String documentLevelAllowancesVATrate;
-    private String documentLevelAllowancesReason;
-    private String documentLevelAllowancesReasonCode;
+    private String documentLevelAllowancesVATrate = "";
+    private String documentLevelAllowancesReason = "";
+    private String documentLevelAllowancesReasonCode = "";
 
     public DocumentLevelAllowances(String documentLevelAllowancesAmount, String documentLevelAllowancesVATcategoryCode) {
         this.documentLevelAllowancesAmount = documentLevelAllowancesAmount;

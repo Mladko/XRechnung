@@ -12,7 +12,7 @@ package com.hoecker.xrechnung.pojos;
 public class PaymentCardInformation {
     
     private final String paymentCardPrimaryAccountNumber;
-    private String paymendCardHolderName;
+    private String paymendCardHolderName = "";
 
     public PaymentCardInformation(String paymentCardPrimaryAccountNumber) {
         this.paymentCardPrimaryAccountNumber = paymentCardPrimaryAccountNumber;
