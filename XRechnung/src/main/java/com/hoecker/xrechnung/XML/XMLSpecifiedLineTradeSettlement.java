@@ -7,6 +7,7 @@ package com.hoecker.xrechnung.XML;
 import com.hoecker.xrechnung.pojos.InvoiceLine;
 import com.hoecker.xrechnung.pojos.InvoiceLineAllowances;
 import com.hoecker.xrechnung.pojos.InvoiceLineCharges;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 import java.util.List;
 
 /**
@@ -42,7 +43,7 @@ public class XMLSpecifiedLineTradeSettlement {
     }
 
     public String getXML() {
-        String xml = "            <ram:SpecifiedLineTradeSettlement>                \n"
+        String xml = "            <ram:SpecifiedLineTradeSettlement>\n"
                 + "                <ram:ApplicableTradeTax>\n"
                 + "                    <ram:TypeCode>" + this.getInvoicedItemVATtypeCode() + "</ram:TypeCode>\n"
                 + "                    <ram:CategoryCode>" + this.getInvoicedItemVATcategoryCode() + "</ram:CategoryCode>\n";
@@ -50,8 +51,8 @@ public class XMLSpecifiedLineTradeSettlement {
             xml = xml + "                    <ram:RateApplicablePercent>" + this.getInvoicedItemVATrate() + "</ram:RateApplicablePercent>\n";
         }
         xml = xml + "                </ram:ApplicableTradeTax>\n";
-        if (this.getInvoiceLinePeriodStartDate() != null && this.getInvoiceLinePeriodStartDate().equals("")
-                && this.getInvoiceLinePeriodEndDate() != null && this.getInvoiceLinePeriodEndDate().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getInvoiceLinePeriodStartDate()).equals("")
+                && !InvoiceHelper.returnEmptyStringOnNull(this.getInvoiceLinePeriodEndDate()).equals("")) {
             xml = xml + "                <ram:BillingSpecifiedPeriod>   \n"
                     + "                    <ram:StartDateTime>\n"
                     + "                        <udt:DateTimeString format=\"102\">" + this.getInvoiceLinePeriodStartDate() + "</udt:DateTimeString>\n"

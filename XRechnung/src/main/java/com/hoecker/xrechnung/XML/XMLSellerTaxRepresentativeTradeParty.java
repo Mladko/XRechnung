@@ -5,6 +5,7 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 
 /**
  *
@@ -36,34 +37,34 @@ public class XMLSellerTaxRepresentativeTradeParty {
 
     String getXML() {
         String xml = "";
-        if (!this.getSellerTaxRepresentativeName().equals("") || !this.getSellerTaxRepresentativeVATidentifier().equals("")
-                || !this.getTaxRepresentativePostcode().equals("") || !this.getTaxRepresentativeAddressline1().equals("")
-                || !this.getTaxRepresentativeAddressline2().equals("") || !this.getTaxRepresentativeAddressline3().equals("")
-                || !this.getTaxRepresentativeCity().equals("") || !this.getTaxRepresentativeCountryCode().equals("")
-                || !this.getTaxRepresentativeCountrySubdivision().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getSellerTaxRepresentativeName()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getSellerTaxRepresentativeVATidentifier()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativePostcode()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeAddressline1()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeAddressline2()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeAddressline3()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeCity()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeCountryCode()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeCountrySubdivision()).equals("")) {
             xml = xml + "            <ram:SellerTaxRepresentativeTradeParty>\n"
                     + "                <ram:Name>" + this.getSellerTaxRepresentativeName() + "</ram:Name>\n"
                     + "                <ram:SpecifiedLegalOrganization>  \n"
                     + "                    <ram:ID schemeID=\"VA\">" + this.getSellerTaxRepresentativeVATidentifier() + "</ram:ID>\n"
                     + "                </ram:SpecifiedLegalOrganization>\n"
                     + "                <ram:PostalTradeAddress>\n";
-            if (!this.getTaxRepresentativePostcode().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativePostcode()).equals("")) {
                 xml = xml + "                    <ram:PostcodeCode>" + this.getTaxRepresentativePostcode() + "</ram:PostcodeCode>\n";
             }
-            if (!this.getTaxRepresentativeAddressline1().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeAddressline1()).equals("")) {
                 xml = xml + "                    <ram:LineOne>" + this.getTaxRepresentativeAddressline1() + "</ram:LineOne>\n";
             }
-            if (!this.getTaxRepresentativeAddressline2().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeAddressline2()).equals("")) {
                 xml = xml + "                    <ram:LineTwo>" + this.getTaxRepresentativeAddressline2() + "</ram:LineTwo>\n";
             }
-            if (!this.getTaxRepresentativeAddressline3().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeAddressline3()).equals("")) {
                 xml = xml + "                    <ram:LineThree>" + this.getTaxRepresentativeAddressline3() + "</ram:LineThree>\n";
             }
-            if (!this.getTaxRepresentativeCity().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeCity()).equals("")) {
                 xml = xml + "                    <ram:CityName>" + this.getTaxRepresentativeCity() + "</ram:CityName>\n";
             }
             xml = xml + "                    <ram:CountryID>" + this.getTaxRepresentativeCountryCode() + "</ram:CountryID>\n";
-            if (!this.getTaxRepresentativeCountrySubdivision().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getTaxRepresentativeCountrySubdivision()).equals("")) {
                 xml = xml + "                    <ram:CountrySubDivisionName>" + this.getTaxRepresentativeCountrySubdivision() + "</ram:CountrySubDivisionName>\n";
             }
             xml = xml + "                </ram:PostalTradeAddress>\n"

@@ -6,6 +6,7 @@ package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.CreditTransfer;
 import com.hoecker.xrechnung.pojos.Invoice;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 import java.util.List;
 
 /**
@@ -46,11 +47,11 @@ public class XMLSpecifiedTradeSettlementHeaderMonetarySummation {
             for (CreditTransfer creditTransfer : creditTransferList) {
                 xml = xml + "                <ram:PayeePartyCreditorFinancialAccount>\n"
                         + "                    <ram:IBANID>" + creditTransfer.getPaymentAccountIdentifier() + "</ram:IBANID>\n";
-                if (!creditTransfer.getPaymentAccountName().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(creditTransfer.getPaymentAccountName()).equals("")) {
                     xml = xml + "                    <ram:AccountName>" + creditTransfer.getPaymentAccountName() + "</ram:AccountName>\n";
                 }
                 xml = xml + "                </ram:PayeePartyCreditorFinancialAccount>\n";
-                if (!creditTransfer.getPaymentServiceProviderIdentifier().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(creditTransfer.getPaymentServiceProviderIdentifier()).equals("")) {
                     xml = xml + "                <ram:PayeeSpecifiedCreditorFinancialInstitution>\n"
                             + "                    <ram:BICID>" + creditTransfer.getPaymentServiceProviderIdentifier() + "</ram:BICID>\n"
                             + "                </ram:PayeeSpecifiedCreditorFinancialInstitution>\n";

@@ -6,6 +6,7 @@ package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.InvoiceLine;
 import com.hoecker.xrechnung.pojos.ItemAttributes;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 import java.util.List;
 
 /**
@@ -41,14 +42,14 @@ public class XMLSpecifiedTradeProduct {
 
     public String getXML() {
         String xml = "            <ram:SpecifiedTradeProduct>\n";
-        if (!this.getItemSellersIdentifier().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getItemSellersIdentifier()).equals("")) {
             xml = xml + "                <ram:SellerAssignedID>" + this.getItemSellersIdentifier() + "</ram:SellerAssignedID>\n";
         }
-        if (!this.getItemBuyersIdentifier().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getItemBuyersIdentifier()).equals("")) {
             xml = xml + "                <ram:BuyerAssignedID>" + this.getItemBuyersIdentifier() + "</ram:BuyerAssignedID>\n";
         }
         xml = xml + "                <ram:Name>" + this.getItemName() + "</ram:Name>\n";
-        if (!this.getItemDescreption().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getItemDescreption()).equals("")) {
             xml = xml + "                <ram:Description>" + this.getItemDescreption() + "</ram:Description>\n";
         }
         if (itemAttributesList != null && !itemAttributesList.isEmpty()) {
@@ -59,7 +60,7 @@ public class XMLSpecifiedTradeProduct {
                         + "                </ram:ApplicableProductCharacteristic>\n";
             }
         }
-        if (!this.getItemCountryOfOrigin().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getItemCountryOfOrigin()).equals("")) {
             xml = xml + "                <ram:OriginTradeCountry>\n"
                     + "                    <ram:ID>" + this.getItemCountryOfOrigin() + "</ram:ID>\n"
                     + "                </ram:OriginTradeCountry>\n";

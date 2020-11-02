@@ -5,6 +5,7 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 
 /**
  *
@@ -52,73 +53,69 @@ public class XMLApplicableHeaderTradeSettlement {
 
     public String getXML() {
         String xml = "";
-        if (!this.getBankAssignedCreditorIdentifier().equals("") || !this.getRemittanceInformation().equals("")
-                || !this.getVatAccountingCurrencyCode().equals("") || !this.getInvoiceCurrencyCode().equals("")
-                || !this.getPayeeIdentifier().equals("") || !this.getPayeeName().equals("")
-                || !this.getInvoicingPeriodStartDate().equals("") || !this.getInvoicingPeriodEndDate().equals("")
-                || !this.specifiedTradeSettlementPaymentMeans.getXML().equals("") || !this.applicableTradeTax.getXML().equals("")
-                || !this.specifiedTradeCharge.getXML().equals("") || !this.specifiedTradeAllowance.getXML().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBankAssignedCreditorIdentifier()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getRemittanceInformation()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getVatAccountingCurrencyCode()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getInvoiceCurrencyCode()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getPayeeIdentifier()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getPayeeName()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getInvoicingPeriodStartDate()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getInvoicingPeriodEndDate()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.specifiedTradeSettlementPaymentMeans.getXML()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.applicableTradeTax.getXML()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.specifiedTradeCharge.getXML()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.specifiedTradeAllowance.getXML()).equals("")) {
             xml = xml + "        <ram:ApplicableHeaderTradeSettlement>\n";
-            if (!this.getBankAssignedCreditorIdentifier().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getBankAssignedCreditorIdentifier()).equals("")) {
                 xml = xml + "            <ram:CreditorReferenceID>" + this.getBankAssignedCreditorIdentifier() + "</ram:CreditorReferenceID>\n";
             }
-            if (!this.getRemittanceInformation().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getRemittanceInformation()).equals("")) {
                 xml = xml + "            <ram:PaymentReference>" + this.getRemittanceInformation() + "</ram:PaymentReference>\n";
             }
-            if (!this.getVatAccountingCurrencyCode().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getVatAccountingCurrencyCode()).equals("")) {
                 xml = xml + "            <ram:TaxCurrencyCode>" + this.getVatAccountingCurrencyCode() + "</ram:TaxCurrencyCode>\n";
             }
-            if (!this.getInvoiceCurrencyCode().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getInvoiceCurrencyCode()).equals("")) {
                 xml = xml + "            <ram:InvoiceCurrencyCode>" + this.getInvoiceCurrencyCode() + "</ram:InvoiceCurrencyCode>\n";
             }
-            if (!this.getPayeeIdentifier().equals("") || !this.getPayeeName().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getPayeeIdentifier()).equals("") || !this.getPayeeName().equals("")) {
                 xml = xml + "            <ram:PayeeTradeParty>\n";
-                if (!this.getPayeeIdentifier().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getPayeeIdentifier()).equals("")) {
                     xml = xml + "                <ram:ID>" + this.getPayeeIdentifier() + "</ram:ID>\n";
                 }
-                if (!this.getPayeeName().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getPayeeName()).equals("")) {
                     xml = xml + "                <ram:Name>" + this.getPayeeName() + "</ram:Name>\n";
                 }
                 xml = xml + "            </ram:PayeeTradeParty>\n";
             }
-            if (!this.specifiedTradeSettlementPaymentMeans.getXML().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.specifiedTradeSettlementPaymentMeans.getXML()).equals("")) {
                 xml = xml + this.specifiedTradeSettlementPaymentMeans.getXML();
             }
-            if (!this.applicableTradeTax.getXML().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.applicableTradeTax.getXML()).equals("")) {
                 xml = xml + this.applicableTradeTax.getXML();
             }
-            if (!this.getInvoicingPeriodStartDate().equals("") || !this.getInvoicingPeriodEndDate().equals("")) {
-                xml = xml + "            <ram:BillingSpecifiedPeriod>  \n";
-                if (!this.getInvoicingPeriodStartDate().equals("")) {
-                    xml = xml + "                <ram:StartDateTime>\n"
-                            + "                    <udt:DateTimeString format=\"102\">" + this.getInvoicingPeriodStartDate() + "</udt:DateTimeString>\n"
-                            + "                </ram:StartDateTime>\n";
-                }
-                if (!this.getInvoicingPeriodEndDate().equals("")) {
-                    xml = xml + "                <ram:EndDateTime>\n"
-                            + "                    <udt:DateTimeString format=\"102\">" + this.getInvoicingPeriodEndDate() + "</udt:DateTimeString>\n"
-                            + "                </ram:EndDateTime>\n";
-                }
-                xml = xml + "            </ram:BillingSpecifiedPeriod>\n";
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getInvoicingPeriodStartDate()).equals("") && !InvoiceHelper.returnEmptyStringOnNull(this.getInvoicingPeriodEndDate()).equals("")) {
+                xml = xml + "            <ram:BillingSpecifiedPeriod>  \n"
+                        + "                <ram:StartDateTime>\n"
+                        + "                    <udt:DateTimeString format=\"102\">" + this.getInvoicingPeriodStartDate() + "</udt:DateTimeString>\n"
+                        + "                </ram:StartDateTime>\n"
+                        + "                <ram:EndDateTime>\n"
+                        + "                    <udt:DateTimeString format=\"102\">" + this.getInvoicingPeriodEndDate() + "</udt:DateTimeString>\n"
+                        + "                </ram:EndDateTime>\n"
+                        + "            </ram:BillingSpecifiedPeriod>\n";
             }
-            if (!this.specifiedTradeCharge.getXML().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.specifiedTradeCharge.getXML()).equals("")) {
                 xml = xml + this.specifiedTradeCharge.getXML();
             }
-            if (!this.specifiedTradeAllowance.getXML().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.specifiedTradeAllowance.getXML()).equals("")) {
                 xml = xml + this.specifiedTradeAllowance.getXML();
             }
-            if (!this.getPaymentTerms().equals("") || !this.getPaymentDueDate().equals("")
-                    || !this.getMandateReferenceIdentifier().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getPaymentTerms()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getPaymentDueDate()).equals("")
+                    || !InvoiceHelper.returnEmptyStringOnNull(this.getMandateReferenceIdentifier()).equals("")) {
                 xml = xml + "            <ram:SpecifiedTradePaymentTerms>\n";
-                if (!this.getPaymentTerms().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getPaymentTerms()).equals("")) {
                     xml = xml + "                <ram:Description>" + this.getPaymentTerms() + "</ram:Description>\n";
                 }
-                if (!this.getPaymentDueDate().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getPaymentDueDate()).equals("")) {
                     xml = xml + "                <ram:DueDateDateTime>\n"
                             + "                    <udt:DateTimeString format=\"102\">" + this.getPaymentDueDate() + "</udt:DateTimeString>\n"
                             + "                </ram:DueDateDateTime>            \n";
                 }
-                if (!this.getMandateReferenceIdentifier().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getMandateReferenceIdentifier()).equals("")) {
                     xml = xml + "                <ram:DirectDebitMandateID>" + this.getMandateReferenceIdentifier() + "</ram:DirectDebitMandateID>\n";
                 }
                 xml = xml + "            </ram:SpecifiedTradePaymentTerms>\n";

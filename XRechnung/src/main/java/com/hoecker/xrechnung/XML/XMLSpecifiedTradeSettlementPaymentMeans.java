@@ -6,6 +6,7 @@ package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.CreditTransfer;
 import com.hoecker.xrechnung.pojos.Invoice;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 import java.util.List;
 
 /**
@@ -33,18 +34,18 @@ class XMLSpecifiedTradeSettlementPaymentMeans {
     public String getXML() {
         String xml = "            <ram:SpecifiedTradeSettlementPaymentMeans>\n"
                 + "                <ram:TypeCode>" + this.getPaymentMeansTypeCode() + "</ram:TypeCode>\n";
-        if (!this.getPaymentMeansText().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getPaymentMeansText()).equals("")) {
             xml = xml + "                <ram:Information>" + this.getPaymentMeansText() + "</ram:Information>\n";
         }
-        if (!this.getPaymentCardPrimaryAccountNumber().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getPaymentCardPrimaryAccountNumber()).equals("")) {
             xml = xml + "                <ram:ApplicableTradeSettlementFinancialCard>\n"
                     + "                    <ram:ID>" + this.getPaymentCardPrimaryAccountNumber() + "</ram:ID>\n";
-            if (!this.getPaymentCardPrimaryAccountNumber().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getPaymentCardPrimaryAccountNumber()).equals("")) {
                 xml = xml + "                    <ram:CardholderName>" + this.getPaymentCardHolderName() + "</ram:CardholderName>\n";
             }
             xml = xml + "                </ram:ApplicableTradeSettlementFinancialCard>\n";
         }
-        if (!this.getDebitedAccountIdentifier().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getDebitedAccountIdentifier()).equals("")) {
             xml = xml + "                <ram:PayerPartyDebtorFinancialAccount>\n"
                     + "                    <ram:IBANID>" + this.getDebitedAccountIdentifier() + "</ram:IBANID>\n"
                     + "                </ram:PayerPartyDebtorFinancialAccount>\n";
@@ -53,11 +54,11 @@ class XMLSpecifiedTradeSettlementPaymentMeans {
                 for (CreditTransfer ct : creditTransferList) {
                     xml = xml + "                <ram:PayeePartyCreditorFinancialAccount>\n"
                             + "                    <ram:IBANID>" + ct.getPaymentAccountIdentifier() + "</ram:IBANID>\n";
-                    if (!ct.getPaymentAccountName().equals("")) {
+                    if (!InvoiceHelper.returnEmptyStringOnNull(ct.getPaymentAccountName()).equals("")) {
                         xml = xml + "                    <ram:AccountName>" + ct.getPaymentAccountName() + "</ram:AccountName>\n";
                     }
                     xml = xml + "                </ram:PayeePartyCreditorFinancialAccount>\n";
-                    if (!ct.getPaymentServiceProviderIdentifier().equals("")) {
+                    if (!InvoiceHelper.returnEmptyStringOnNull(ct.getPaymentServiceProviderIdentifier()).equals("")) {
                         xml = xml + "                <ram:PayeeSpecifiedCreditorFinancialInstitution>\n"
                                 + "                    <ram:BICID>" + ct.getPaymentServiceProviderIdentifier() + "</ram:BICID>\n"
                                 + "                </ram:PayeeSpecifiedCreditorFinancialInstitution>\n";

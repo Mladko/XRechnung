@@ -5,6 +5,7 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 
 /**
  *
@@ -34,7 +35,7 @@ public class XMLExchangedDocumentContext {
     
     public String getXML() {
         String xml = "    <rsm:ExchangedDocumentContext>\n";
-        if (!this.getBusinessProcessType().equals("")) {
+        if (!!InvoiceHelper.returnEmptyStringOnNull(this.getBusinessProcessType()).equals("")) {
             xml = xml + 
                   "        <ram:BusinessProcessSpecifiedDocumentContextParameter>\n"
                 + "            <ram:ID>" + this.getBusinessProcessType() + "</ram:ID>\n"

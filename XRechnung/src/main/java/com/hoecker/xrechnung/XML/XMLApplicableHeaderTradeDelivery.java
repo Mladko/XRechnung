@@ -5,6 +5,7 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 
 /**
  *
@@ -44,41 +45,41 @@ public class XMLApplicableHeaderTradeDelivery {
 
     public String getXML() {
         String xml = "";
-        if (!this.getDeliverToLocationIdentifier().equals("") || !this.getDeliverToPartyname().equals("")
-                || !this.getDeliverToPostcode().equals("") || !this.getDeliverToCity().equals("")
-                || !this.getDeliverToCountryCode().equals("") || !this.getDeliverToAddressline1().equals("")
-                || !this.getDeliverToAddressline2().equals("") || !this.getDeliverToAddressline3().equals("")
-                || !this.getDeliverToCountrySubdivision().equals("") || !this.getActualDeliveryDate().equals("")
-                || !this.getDespatchAdviceReference().equals("") || !this.getReceivingAdviceReference().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToLocationIdentifier()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToPartyname()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToPostcode()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToCity()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToCountryCode()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToAddressline1()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToAddressline2()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToAddressline3()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToCountrySubdivision()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getActualDeliveryDate()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getDespatchAdviceReference()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getReceivingAdviceReference()).equals("")) {
             xml = xml + "        <ram:ApplicableHeaderTradeDelivery>\n"
                     + "            <ram:ShipToTradeParty>\n";
-            if (!this.getDeliverToLocationIdentifier().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToLocationIdentifier()).equals("")) {
                 xml = xml + "                <ram:ID>" + this.getDeliverToLocationIdentifier() + "</ram:ID>\n";
             }
-            if (!this.getDeliverToPartyname().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToPartyname()).equals("")) {
                 xml = xml + "                <ram:Name>" + this.getDeliverToPartyname() + "</ram:Name>\n";
             }
-            if (!this.getDeliverToPostcode().equals("") && !this.getDeliverToCity().equals("") && !this.getDeliverToCountryCode().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToPostcode()).equals("") && !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToCity()).equals("") && !InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToCountryCode()).equals("")) {
                 xml = xml + "                <ram:PostalTradeAddress>\n"
                         + "                    <ram:PostcodeCode>" + this.getDeliverToPostcode() + "</ram:PostcodeCode>\n";
-                if (!this.getDeliverToAddressline1().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToAddressline1()).equals("")) {
                     xml = xml + "                    <ram:LineOne>" + this.getDeliverToAddressline1() + "</ram:LineOne>\n";
                 }
-                if (!this.getDeliverToAddressline2().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToAddressline2()).equals("")) {
                     xml = xml + "                    <ram:LineTwo>" + this.getDeliverToAddressline2() + "</ram:LineTwo>\n";
                 }
-                if (!this.getDeliverToAddressline3().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToAddressline3()).equals("")) {
                     xml = xml + "                    <ram:LineThree>" + this.getDeliverToAddressline3() + "</ram:LineThree>\n";
                 }
                 xml = xml + "                    <ram:CityName>" + this.getDeliverToCity() + "</ram:CityName>\n"
                         + "                    <ram:CountryID>" + this.getDeliverToCountryCode() + "</ram:CountryID>\n";
-                if (!this.getDeliverToCountrySubdivision().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(this.getDeliverToCountrySubdivision()).equals("")) {
                     xml = xml + "                    <ram:CountrySubDivisionName>" + this.getDeliverToCountrySubdivision() + "</ram:CountrySubDivisionName>\n";
                 }
                 xml = xml + "                </ram:PostalTradeAddress>\n";
             }
             xml = xml + "            </ram:ShipToTradeParty>\n";
-            if (!this.getActualDeliveryDate().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getActualDeliveryDate()).equals("")) {
                 xml = xml + "            <ram:ActualDeliverySupplyChainEvent>\n"
                         + "            <ram:ActualDeliverySupplyChainEvent>\n"
                         + "                <ram:OccurrenceDateTime>\n"
@@ -86,12 +87,12 @@ public class XMLApplicableHeaderTradeDelivery {
                         + "                </ram:OccurrenceDateTime>\n"
                         + "            </ram:ActualDeliverySupplyChainEvent>\n";
             }
-            if (!this.getDespatchAdviceReference().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getDespatchAdviceReference()).equals("")) {
                 xml = xml + "            <ram:DespatchAdviceReferencedDocument>\n"
                         + "                <ram:IssuerAssignedID>" + this.getDespatchAdviceReference() + "</ram:IssuerAssignedID>\n"
                         + "            </ram:DespatchAdviceReferencedDocument>\n";
             }
-            if (!this.getReceivingAdviceReference().equals("")) {
+            if (!InvoiceHelper.returnEmptyStringOnNull(this.getReceivingAdviceReference()).equals("")) {
                 xml = xml + "            <ram:ReceivingAdviceReferencedDocument>\n"
                         + "                <ram:IssuerAssignedID>" + this.getReceivingAdviceReference() + "</ram:IssuerAssignedID>       \n"
                         + "            </ram:ReceivingAdviceReferencedDocument>\n";

@@ -5,6 +5,7 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.InvoiceLine;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 
 /**
  *
@@ -29,14 +30,17 @@ public class XMLAssociatedDocumentLineDocument {
     }
 
     public String getXML() {
-        String xml = "<ram:AssociatedDocumentLineDocument>\n"
-                + "                <ram:LineID>" + this.getInvoiceLineIdentifier() + "</ram:LineID>\n";
-        if (this.getInvoiceLineNote() != null && !this.getInvoiceLineNote().equals("")) {
-            xml = xml + "                <ram:IncludedNote>\n"
-                    + "                    <ram:Content>" + this.getInvoiceLineNote() + "</ram:Content>\n"
-                    + "                </ram:IncludedNote>\n";
+        String xml = "";
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getInvoiceLineIdentifier()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getInvoiceLineNote()).equals(""))  {
+            xml = xml + "            <ram:AssociatedDocumentLineDocument>\n"
+                    + "                <ram:LineID>" + this.getInvoiceLineIdentifier() + "</ram:LineID>\n";
+            if (this.getInvoiceLineNote() != null && !this.getInvoiceLineNote().equals("")) {
+                xml = xml + "                <ram:IncludedNote>\n"
+                        + "                    <ram:Content>" + this.getInvoiceLineNote() + "</ram:Content>\n"
+                        + "                </ram:IncludedNote>\n";
+            }
+            xml = xml + "            </ram:AssociatedDocumentLineDocument>\n";
         }
-        xml = xml + "            </ram:AssociatedDocumentLineDocument>\n";
         return xml;
     }
 

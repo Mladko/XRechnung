@@ -6,6 +6,7 @@ package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
 import com.hoecker.xrechnung.pojos.InvoiceNote;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 import java.util.List;
 
 /**
@@ -58,10 +59,12 @@ public class XMLExchangedDocument {
                 + "        </ram:IssueDateTime>      \n";
         if (invoiceNodeList != null && !invoiceNodeList.isEmpty()) {
             for (InvoiceNote in : invoiceNodeList) {
-                xml = xml + "        <ram:IncludedNote>     \n"
+                if (!InvoiceHelper.returnEmptyStringOnNull(in.getInvoiceNote()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(in.getPaymentTerms()).equals("")){
+                    xml = xml + "        <ram:IncludedNote>     \n"
                         + "            <ram:Content>" + in.getInvoiceNote() + "</ram:Content>\n"
                         + "            <ram:SubjectCode>" + in.getPaymentTerms() + "</ram:SubjectCode>\n"
                         + "        </ram:IncludedNote>   \n";
+                }                
             }
         }
         xml = xml + "    </rsm:ExchangedDocument>\n";

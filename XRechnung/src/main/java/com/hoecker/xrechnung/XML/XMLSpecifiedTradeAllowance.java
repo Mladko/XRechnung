@@ -6,6 +6,7 @@ package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.DocumentLevelAllowances;
 import com.hoecker.xrechnung.pojos.Invoice;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 import java.util.List;
 
 /**
@@ -28,26 +29,26 @@ public class XMLSpecifiedTradeAllowance {
                         + "                <ram:ChargeIndicator>\n"
                         + "                    <udt:Indicator>true</udt:Indicator>\n"
                         + "                </ram:ChargeIndicator>\n";
-                if (!ac.getDocumentLevelAllowancesPercentages().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(ac.getDocumentLevelAllowancesPercentages()).equals("")) {
                     xml = xml + "                <ram:CalculationPercent>" + ac.getDocumentLevelAllowancesPercentages() + "</ram:CalculationPercent>\n";
                 }
-                if (!ac.getDocumentLevelAllowancesBaseAmount().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(ac.getDocumentLevelAllowancesBaseAmount()).equals("")) {
                     xml = xml + "                <ram:BasisAmount>" + ac.getDocumentLevelAllowancesBaseAmount()+ "</ram:BasisAmount>\n";
                 }
                 xml = xml + "                <ram:ActualAmount>" + ac.getDocumentLevelAllowancesAmount() + "</ram:ActualAmount>\n";
-                if (!ac.getDocumentLevelAllowancesReasonCode().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(ac.getDocumentLevelAllowancesReasonCode()).equals("")) {
                     xml = xml + "                <ram:ReasonCode>" + ac.getDocumentLevelAllowancesReasonCode() + "</ram:ReasonCode>\n";
                 }
-                if (!ac.getDocumentLevelAllowancesReason().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(ac.getDocumentLevelAllowancesReason()).equals("")) {
                     xml = xml + "                <ram:Reason>" + ac.getDocumentLevelAllowancesReason() + "</ram:Reason>\n";
                 }
-                if (!ac.getDocumentLevelAllowancesVATrate().equals("") || !ac.getDocumentLevelAllowancesVATrate().equals("")) {
+                if (!InvoiceHelper.returnEmptyStringOnNull(ac.getDocumentLevelAllowancesVATrate()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(ac.getDocumentLevelAllowancesVATrate()).equals("")) {
                     xml = xml + "                <ram:CategoryTradeTax>\n"
                             + "                    <ram:TypeCode>VAT</ram:TypeCode>\n";
-                    if (!ac.getDocumentLevelAllowancesVATcategoryCode().equals("")) {
+                    if (!InvoiceHelper.returnEmptyStringOnNull(ac.getDocumentLevelAllowancesVATcategoryCode()).equals("")) {
                         xml = xml + "                    <ram:CategoryCode>" + ac.getDocumentLevelAllowancesVATcategoryCode() + "</ram:CategoryCode>\n";
                     }
-                    if (!ac.getDocumentLevelAllowancesVATrate().equals("")) {
+                    if (!InvoiceHelper.returnEmptyStringOnNull(ac.getDocumentLevelAllowancesVATrate()).equals("")) {
                         xml = xml + "                    <ram:RateApplicablePercent>" + ac.getDocumentLevelAllowancesVATrate() + "</ram:RateApplicablePercent>\n";
                     }
                     xml = xml + "                </ram:CategoryTradeTax>\n";

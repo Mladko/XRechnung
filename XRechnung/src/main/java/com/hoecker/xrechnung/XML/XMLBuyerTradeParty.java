@@ -5,6 +5,7 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.Invoice;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 
 /**
  *
@@ -52,17 +53,17 @@ public class XMLBuyerTradeParty {
 
     public String getXML() {
         String xml = "            <ram:BuyerTradeParty>\n";
-        if (!this.buyerIdentifier.equals("")) {
-            xml = xml + "                <ram:ID>" + this.buyerIdentifier + "</ram:ID>\n";
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerIdentifier()).equals("")) {
+            xml = xml + "                <ram:ID>" + this.getBuyerIdentifier() + "</ram:ID>\n";
         }
         xml = xml + "                <ram:Name>" + this.getBuyerName() + "</ram:Name>\n";
-        if (!this.getBuyerTradingName().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerTradingName()).equals("")) {
             xml = xml + "                <ram:SpecifiedLegalOrganization>\n"
                     + "                    <ram:TradingBusinessName>" + this.getBuyerTradingName() + "</ram:TradingBusinessName>\n"
                     + "                </ram:SpecifiedLegalOrganization>\n";
         }
-        if (!this.getBuyerContactPoint().equals("") || !this.getBuyerContactTelephonenumber().equals("")
-                || !this.getBuyerContactEmailaddress().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerContactPoint()).equals("") || !InvoiceHelper.returnEmptyStringOnNull(this.getBuyerContactTelephonenumber()).equals("")
+                || !InvoiceHelper.returnEmptyStringOnNull(this.getBuyerContactEmailaddress()).equals("")) {
 
             xml = xml + "                <ram:DefinedTradeContact>\n"
                     + "                    <ram:PersonName>" + this.getBuyerContactPoint() + "</ram:PersonName>\n"
@@ -76,28 +77,28 @@ public class XMLBuyerTradeParty {
         }
         xml = xml + "                <ram:PostalTradeAddress>\n"
                 + "                    <ram:PostcodeCode>" + this.getBuyerPostcode() + "</ram:PostcodeCode>\n";
-        if (!this.getBuyerAddressline1().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerAddressline1()).equals("")) {
             xml = xml + "                    <ram:LineOne>" + this.getBuyerAddressline1() + "</ram:LineOne>\n";
         }
-        if (!this.getBuyerAddressline2().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerAddressline2()).equals("")) {
             xml = xml + "                    <ram:LineTwo>" + this.getBuyerAddressline2() + "</ram:LineTwo>\n";
         }
-        if (!this.getBuyerAddressline3().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerAddressline3()).equals("")) {
             xml = xml + "                    <ram:LineThree>" + this.getBuyerAddressline3() + "</ram:LineThree>\n";
         }
         xml = xml + "                    <ram:CityName>" + this.getBuyerCity() + "</ram:CityName>\n"
                 + "                    <ram:CountryID>" + this.getBuyerCountryCodes() + "</ram:CountryID>\n";
-        if (!this.getBuyerCountrySubdivision().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerCountrySubdivision()).equals("")) {
             xml = xml + "                    <ram:CountrySubDivisionName>" + this.getBuyerCountrySubdivision() + "</ram:CountrySubDivisionName>\n";
         }
         xml = xml + "                </ram:PostalTradeAddress>\n";
-        if (!this.getBuyerElectronicaddress().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerElectronicaddress()).equals("")) {
             xml = xml + "                <ram:URIUniversalCommunication>\n"
                     + "                    <ram:URIID schemeID=\"" + this.getBuyerElectronicaddressIdentificationSchemeIdentifier() + "\">"
                     + this.getBuyerElectronicaddress() + "</ram:URIID>\n"
                     + "                </ram:URIUniversalCommunication>  \n";
         }
-        if (!this.getBuyerVATidentifier().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getBuyerVATidentifier()).equals("")) {
             xml = xml + "                <ram:SpecifiedTaxRegistration>\n"
                     + "                    <ram:ID schemeID=\"VA\">" + this.getBuyerVATidentifier() + "</ram:ID>\n"
                     + "                </ram:SpecifiedTaxRegistration>   \n";

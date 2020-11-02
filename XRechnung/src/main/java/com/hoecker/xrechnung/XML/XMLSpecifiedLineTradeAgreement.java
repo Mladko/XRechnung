@@ -5,6 +5,7 @@
 package com.hoecker.xrechnung.XML;
 
 import com.hoecker.xrechnung.pojos.InvoiceLine;
+import com.hoecker.xrechnung.utils.InvoiceHelper;
 
 /**
  *
@@ -28,14 +29,14 @@ public class XMLSpecifiedLineTradeAgreement {
 
     public String getXML() {
         String xml = "            <ram:SpecifiedLineTradeAgreement>\n";
-        if (!this.getReferencedPurchaseOrderLineReference().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getReferencedPurchaseOrderLineReference()).equals("")) {
             xml = xml + "                <ram:BuyerOrderReferencedDocument>\n"
                     + "                    <ram:LineID>" + this.getReferencedPurchaseOrderLineReference() + "</ram:LineID>\n"
                     + "                </ram:BuyerOrderReferencedDocument>\n";
         }
         xml = xml + "                <ram:NetPriceProductTradePrice>\n"
                 + "                    <ram:ChargeAmount>" + this.getItemNetPrice() + "</ram:ChargeAmount>\n";
-        if (!this.getItemPriceBaseQuantityUnitOfMeasureCode().equals("") && !this.getItemPriceBaseQuantity().equals("")) {
+        if (!InvoiceHelper.returnEmptyStringOnNull(this.getItemPriceBaseQuantityUnitOfMeasureCode()).equals("") && !InvoiceHelper.returnEmptyStringOnNull(this.getItemPriceBaseQuantity()).equals("")) {
             xml = xml + "                    <ram:BasisQuantity unitCode=\"" + this.getItemPriceBaseQuantityUnitOfMeasureCode() + "\">"
                     + this.getItemPriceBaseQuantity() + "</ram:BasisQuantity>\n";
         }

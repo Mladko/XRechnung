@@ -67,16 +67,18 @@ public class XRechnungXML {
         SellerPostalAddress sellerContact = new SellerPostalAddress("Oberhausen", "46119", "DE");
         SellerContact sellerPostalAddress = new SellerContact("Name des Kontakts", "Telefonnummer des Kontakts", "Emailadresse des Kontakts");
         Seller seller = new Seller("Firmenname", sellerContact, sellerPostalAddress);
-        BuyerPostalAddress buyerPostalAddress = new BuyerPostalAddress("Name des Kontakts", "Telefonnummer des Kontakts", "Emailadresse des Kontakts");
+        seller.setSellerVatIdentifier("DE-Umsatzsteueridentifikationsnummer");
+        BuyerPostalAddress buyerPostalAddress = new BuyerPostalAddress("Bochum", "44117", "DE");
         Buyer buyer = new Buyer("Firmenname", buyerPostalAddress);
         PaymentInstructions paymentInstructions = new PaymentInstructions("58");
         DocumentTotals documentTotals = new DocumentTotals("100.00", "100.00", "116.00");
         List<VatBreakdown> vatBreakdownList = new ArrayList<>();
-        VatBreakdown vatBreakdown = new VatBreakdown("100.00", "116.00", "S", "16.00");
+        VatBreakdown vatBreakdown = new VatBreakdown("100.00", "16.00", "S", "16.00");
         vatBreakdownList.add(vatBreakdown);
         List<InvoiceLine> invoiceLineList = new ArrayList<>();
         PriceDetails priceDetails = new PriceDetails("100.00");
         LineVATinformation lineVATinformation = new LineVATinformation("S");
+        lineVATinformation.setInvoicedItemVATrate("16.00");
         ItemInformation itemInformation = new ItemInformation("Name des Produkts");
         InvoiceLine invoiceLine = new InvoiceLine("Bezeichner der Rechnungsposition", "1", "Liter",
                 "100", priceDetails, lineVATinformation, itemInformation);
